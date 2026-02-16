@@ -56,10 +56,9 @@ button {
 button:hover {
   background: #00695c;
 }
+.page { display: none; }
+.page.active { display: block; }
 
-#results-page {
-  display: none;
-}
 
 .result-table {
   width: 100%;
@@ -80,13 +79,6 @@ button:hover {
   text-align: center;
 }
 
-.mabl-box {
-  margin-top: 15px;
-  padding: 10px;
-  background: #ff3b3b;
-  text-align: center;
-  font-size: 16px;
-}
 .disclaimer {
   margin-top: 16px;
   font-size: 0.85rem;
@@ -96,5 +88,6 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
