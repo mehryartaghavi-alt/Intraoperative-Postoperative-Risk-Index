@@ -15,11 +15,11 @@
     <h1>Intraoperative & Postoperative Risk Index</h1>
     <p class="subtitle">Mehryar Taghavi Gilani, MD – Anesthesiology</p>
 
-    <button class="risk-btn" data-risk="cardiac">❤️ Cardiac</button>
-    <button class="risk-btn" data-risk="pulmonary">Pulmonary</button>
-    <button class="risk-btn" data-risk="renal">Renal</button>
-    <button class="risk-btn" data-risk="stroke">Stroke</button>
-    <button class="risk-btn" data-risk="hepatic">Hepatic</button>
+    <button class="risk-btn" data-target="page-cardiac">❤️ Cardiac</button>
+  <button class="risk-btn" data-target="page-pulmonary">Pulmonary</button>
+  <button class="risk-btn" data-target="page-renal">Renal</button>
+  <button class="risk-btn" data-target="page-stroke">Stroke</button>
+  <button class="risk-btn" data-target="page-hepatic">Hepatic</button>
 
     <div class="disclaimer">
       <strong>Please choose the Risk Factor</strong><br>
@@ -30,22 +30,48 @@
       <b>Hepatic:</b> Liver injury
     </div>
   </div>
+<div id="page-cardiac" class="page">
+  <h2>Cardiac Risk</h2>
+  <button id="backBtn">⬅ Back</button>
+</div>
+
+<div id="page-pulmonary" class="page">
+  <h2>Pulmonary Risk</h2>
+  <button class="backBtn">⬅ Back</button>
+</div>
+
+<div id="page-renal" class="page">
+  <h2>Renal Risk</h2>
+  <button class="backBtn">⬅ Back</button>
+</div>
+
+<div id="page-stroke" class="page">
+  <h2>Stroke Risk</h2>
+  <button class="backBtn">⬅ Back</button>
+</div>
+
+<div id="page-hepatic" class="page">
+  <h2>Hepatic Risk</h2>
+  <button class="backBtn">⬅ Back</button>
+</div>
 
   <!-- PAGE 2 -->
-  <div id="results-page" class="page">
-    <h2>Results</h2>
-    <button>RCRI</button>
-    <button>Goldman</button>
-    <button>Gupta</button>
-    <button>Detsky</button>
+  <div id="page-cardiac" class="page">
+  <h2>Cardiac Risk</h2>
+  <button>RCRI</button>
+  <button>Goldman</button>
+  <button>Gupta</button>
+  <button>Detsky</button>
 
-    <button id="backBtn">⬅ Back</button>
-  </div>
+  <button class="backBtn">⬅ Back</button>
+</div>
+
 
 </div>
 
 <script src="sdript.js"></script>
 </body>
 </html>
+
 
 
