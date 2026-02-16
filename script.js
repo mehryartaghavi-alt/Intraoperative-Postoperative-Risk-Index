@@ -1,3 +1,4 @@
+alert("JS LOADED");
 const pages = document.querySelectorAll('.page');
 const riskButtons = document.querySelectorAll('.risk-btn');
 const backButtons = document.querySelectorAll('.backBtn');
@@ -21,3 +22,4 @@ backButtons.forEach(btn => {
     showPage('input-page');
   });
 });
+
