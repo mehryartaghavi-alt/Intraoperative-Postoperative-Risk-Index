@@ -1,22 +1,23 @@
 const pages = document.querySelectorAll('.page');
 const riskButtons = document.querySelectorAll('.risk-btn');
-const backBtn = document.getElementById('backBtn');
-
-let selectedRisk = null;
+const backButtons = document.querySelectorAll('.backBtn');
 
 function showPage(pageId) {
-  pages.forEach(page => page.classList.remove('active'));
+  pages.forEach(p => p.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
 }
 
+// رفتن به صفحه مربوطه
 riskButtons.forEach(btn => {
   btn.addEventListener('click', () => {
-    selectedRisk = btn.dataset.risk;
-    console.log("Selected risk:", selectedRisk);
-    showPage('results-page');
+    const targetPage = btn.dataset.target;
+    showPage(targetPage);
   });
 });
 
-backBtn.addEventListener('click', () => {
-  showPage('input-page');
+// برگشت به صفحه اول
+backButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    showPage('input-page');
+  });
 });
