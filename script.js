@@ -22,4 +22,13 @@ backButtons.forEach(btn => {
     showPage('input-page');
   });
 });
+const scoreButtons = document.querySelectorAll('.score-btn');
+
+scoreButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const score = btn.dataset.score;
+    console.log("Selected score:", score);
+  });
+});
+
 
