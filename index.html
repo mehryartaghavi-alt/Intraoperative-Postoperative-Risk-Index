@@ -3,47 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
   <title>Intraoperative & Postoperative Risk Index</title>
-
-     <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app">
 
-    <!-- INPUT PAGE -->
-    <div id="input-page">
-      <h1>Intraoperative & Postoperative Risk Index</h1>
-      <p class="subtitle">Mehryar Taghavi Gilani, MD – Anesthesiology</p>
-<button id="calcBtn" type="button">Cardiac</button>
-<button id="calcBtn" type="button">Pulmonary</button>
-<button id="calcBtn" type="button">Renal</button>
-<button id="calcBtn" type="button">Stroke</button>
-<button id="calcBtn" type="button">Hepatic</button>
+<div class="app">
 
-      <div class="disclaimer">
-  <strong>Please choose the Risk Factor</strong><br>
-  <b>Cardiac:</b> Risk of intraoperative or postoperative MI<br>
-  <b>Pulmonary:</b>Risk of Postoperative Pulmonary complication and difficult extubation.<br>
-  <b>Renal:</b> Risk of postoperative Acute Kidney Injury(AKI).<br>
-  <b>Stroke:</b>Risk of cerebrovascular accident (CVA). <br>
-  <b>Hepatic:</b> Risk of postoperative hepatic injury or insufficiency. <br>
+  <!-- PAGE 1 -->
+  <div id="input-page" class="page active">
+    <h1>Intraoperative & Postoperative Risk Index</h1>
+    <p class="subtitle">Mehryar Taghavi Gilani, MD – Anesthesiology</p>
+
+    <button class="risk-btn" data-risk="cardiac">❤️ Cardiac</button>
+    <button class="risk-btn" data-risk="pulmonary">Pulmonary</button>
+    <button class="risk-btn" data-risk="renal">Renal</button>
+    <button class="risk-btn" data-risk="stroke">Stroke</button>
+    <button class="risk-btn" data-risk="hepatic">Hepatic</button>
+
+    <div class="disclaimer">
+      <strong>Please choose the Risk Factor</strong><br>
+      <b>Cardiac:</b> Risk of MI<br>
+      <b>Pulmonary:</b> Pulmonary complications<br>
+      <b>Renal:</b> AKI<br>
+      <b>Stroke:</b> CVA<br>
+      <b>Hepatic:</b> Liver injury
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div id="results-page" class="page">
+    <h2>Results</h2>
+    <button>RCRI</button>
+    <button>Goldman</button>
+    <button>Gupta</button>
+    <button>Detsky</button>
+
+    <button id="backBtn">⬅ Back</button>
+  </div>
 
 </div>
 
-    </div>
-
-    <div id="results-page">
-      <h2>Results</h2>
-<button id="calcBtn" type="button">RCRI</button>
-      <button id="calcBtn" type="button">Goldman</button>
-      <button id="calcBtn" type="button">Gupta</button>
-      <button id="calcBtn" type="button">Detsky</button>
-     </div>
-     </div>
-
-    <body>
-
-
-
-
+<script src="app.js"></script>
+</body>
+</html>
