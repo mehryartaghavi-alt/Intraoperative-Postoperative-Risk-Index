@@ -1,4 +1,4 @@
-حdocument.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   const pages = document.querySelectorAll(".page");
 
@@ -41,6 +41,7 @@ scoreButtons.forEach(btn => {
   });
 
 });
+
 
 
 
