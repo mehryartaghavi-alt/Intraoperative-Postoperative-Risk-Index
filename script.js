@@ -16,30 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- PAGE 1 : ORGAN SELECTION ---------- */
 
-  const riskButtons = document.querySelectorAll('.risk-btn');
+  cconst riskButtons = document.querySelectorAll('.risk-btn');
 
-  riskButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const risk = btn.dataset.risk;
-      console.log("Selected organ:", risk);
-
-      if (risk === "cardiac") {
-        showPage('page-cardiac');
-      }
-      if (risk === "lung") {
-        showPage('page-lung');
-      }
-      if (risk === "kidney") {
-        showPage('page-kidney');
-      }
-      if (risk === "stroke") {
-        showPage('page-stroke');
-      }
-      if (risk === "liver") {
-        showPage('page-liver');
-      }
-    });
+riskButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    showPage(btn.dataset.target);
   });
+});
+
 
   /* ---------- PAGE 2 : CARDIAC SCORES ---------- */
 
@@ -75,3 +59,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
