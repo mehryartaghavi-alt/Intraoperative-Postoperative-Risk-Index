@@ -51,7 +51,7 @@ riskButtons.forEach(btn => {
 
   /* ---------- BACK BUTTONS ---------- */
 
-  document.querySelectorAll('.back-btn').forEach(btn => {
+  document.querySelectorAll('.backBtn').forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.back;
       showPage(target);
@@ -59,4 +59,5 @@ riskButtons.forEach(btn => {
   });
 
 });
+
 
