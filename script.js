@@ -24,25 +24,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // دکمه‌های Cardiac scores
-  scoreButtons.forEach(btn => {
+  document.addEventListener('DOMContentLoaded', () => {
+
+  const pages = document.querySelectorAll('.page');
+  const riskButtons = document.querySelectorAll('.risk-btn');
+  const backButtons = document.querySelectorAll('.backBtn');
+  const scoreButtons = document.querySelectorAll('.score-btn');
+  const calcRCRI = document.getElementById('calcRCRI');
+
+  function showPage(pageId) {
+    pages.forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+  }
+
+  // Stage 1 → Stage 2
+  riskButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      console.log("Selected score:", btn.dataset.score);
-      alert("Score selected: " + btn.dataset.score);
+      showPage(btn.dataset.target);
     });
   });
 
-});
-const scoreButtons = document.querySelectorAll('.score-btn');
+  // Stage 2 → Stage 3 (RCRI)
+  scoreButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const score = btn.dataset.score;
+      console.log("Selected score:", score);
 
-scoreButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (btn.dataset.score === "rcri") {
-      showPage('page-rcri');
-    }
+      if (score === "rcri") {
+        showPage('page-rcri');
+      }
+    });
   });
+
+  // Back buttons
+  backButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      showPage('input-page');
+    });
+  });
+
+  // RCRI calculation (بعداً کاملش می‌کنیم)
+  if (calcRCRI) {
+    calcRCRI.addEventListener('click', () => {
+      console.log("Calculate RCRI clicked");
+    });
+  }
+
 });
-const calcRCRI = document.getElementById('calcRCRI');
+
 
 if (calcRCRI) {
   calcRCRI.addEventListener('click', () => {
@@ -69,6 +98,7 @@ if (calcRCRI) {
        <strong>Risk Level:</strong> ${interpretation}`;
   });
 }
+
 
 
 
