@@ -22,6 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+// PAGE 2 → PAGE GOLDMAN
+scoreButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const score = btn.dataset.score;
+
+    if (score === "goldman") {
+      showPage("page-goldman");
+    }
+  });
+});
 
   // BACK → PAGE 1
   document.querySelectorAll(".backBtn").forEach(btn => {
@@ -31,3 +41,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
