@@ -33,6 +33,43 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+const scoreButtons = document.querySelectorAll('.score-btn');
+
+scoreButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.dataset.score === "rcri") {
+      showPage('page-rcri');
+    }
+  });
+});
+const calcRCRI = document.getElementById('calcRCRI');
+
+if (calcRCRI) {
+  calcRCRI.addEventListener('click', () => {
+
+    const checkboxes = document.querySelectorAll('#page-rcri input[type="checkbox"]');
+    let score = 0;
+
+    checkboxes.forEach(cb => {
+      if (cb.checked) score += 1;
+    });
+
+    let interpretation = "";
+
+    if (score === 0) {
+      interpretation = "Low risk";
+    } else if (score === 1) {
+      interpretation = "Intermediate risk";
+    } else {
+      interpretation = "High risk";
+    }
+
+    document.getElementById('rcriResult').innerHTML =
+      `<strong>RCRI Score:</strong> ${score}<br>
+       <strong>Risk Level:</strong> ${interpretation}`;
+  });
+}
+
 
 
 
