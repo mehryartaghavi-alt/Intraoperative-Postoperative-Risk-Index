@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+حdocument.addEventListener("DOMContentLoaded", () => {
 
   const pages = document.querySelectorAll(".page");
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 // PAGE 2 → PAGE GOLDMAN
-scoreButtons.forEach(btn => {
+score-buttons.forEach(btn => {
   btn.addEventListener('click', () => {
     const score = btn.dataset.score;
 
@@ -41,4 +41,5 @@ scoreButtons.forEach(btn => {
   });
 
 });
+
 
