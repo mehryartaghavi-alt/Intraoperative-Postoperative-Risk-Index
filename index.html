@@ -4,8 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intraoperative & Postoperative Risk Index</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .app {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      min-height: 100vh;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+    }
+
+    .result-box {
+      margin-top: 15px;
+      padding: 10px;
+      background: #eef;
+      border-radius: 5px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
+
 <body>
 
 <div class="app">
@@ -16,123 +67,57 @@
     <p class="subtitle">Mehryar Taghavi Gilani, MD – Anesthesiology</p>
 
     <button class="risk-btn" data-target="page-cardiac">Cardiac</button>
-  <button class="risk-btn" data-target="page-pulmonary">Pulmonary</button>
-  <button class="risk-btn" data-target="page-renal">Renal</button>
-  <button class="risk-btn" data-target="page-cerebral">Cerebral</button>
-  <button class="risk-btn" data-target="page-hepatic">Hepatic</button>
-
-    <div class="disclaimer">
-      <strong>Please choose the Risk Factor</strong><br>
-      <b>Cardiac:</b>Postoperative cardiac Event & complication<br>
-      <b>Pulmonary:</b> Postoperative Pulmonary complications<br>
-      <b>Renal:</b> Postoperative Renal Risk Index (AKI)<br>
-      <b>Cerebral:</b> Postoperative Stroke Risk Index<br>
-      <b>Hepatic:</b> Postoperative Hepatic Dysfunction<br>
-    </div>
+    <button class="risk-btn" data-target="page-pulmonary">Pulmonary</button>
+    <button class="risk-btn" data-target="page-renal">Renal</button>
+    <button class="risk-btn" data-target="page-cerebral">Cerebral</button>
+    <button class="risk-btn" data-target="page-hepatic">Hepatic</button>
   </div>
-  <!-- PAGE 2 -->
+
+  <!-- CARDIAC -->
   <div id="page-cardiac" class="page">
+    <h2>Cardiac Risk Assessment</h2>
 
-  <h2>Cardiac Risk Assessment</h2>
+    <button class="score-btn" data-score="rcri">LEE Criteria (RCRI)</button>
+    <button class="score-btn" data-score="goldman">Goldman Cardiac Risk Index</button>
 
-  <button class="score-btn" data-score="rcri">LEE criteria (RCRI)</button>
-  <button class="score-btn" data-score="goldman">Goldman Cradiac Risk Index</button>
-   <button class="score-btn" data-score="detsky">Detsky Cardiac Risk Index</button>
- <button class="score-btn" data-score="gupta">Gupta Riskore Sc</button>
-     <button class="score-btn" data-score="eagle">Eagle Cardiac Risk Criteria</button>
     <button class="backBtn">⬅ Back</button>
+  </div>
+
+  <!-- RCRI -->
+  <div id="page-rcri" class="page">
+    <h2>RCRI – Cardiac Risk Index</h2>
+
+    <label><input type="checkbox" data-score="1"> History of CVA or TIA</label>
+    <label><input type="checkbox" data-score="1"> Insulin-dependent diabetes</label>
+    <label><input type="checkbox" data-score="1"> Creatinine &gt; 2 mg/dL</label>
+    <label><input type="checkbox" data-score="1"> Coronary artery disease</label>
+    <label><input type="checkbox" data-score="1"> High-risk surgery</label>
+
+    <button id="calcRCRI">Calculate RCRI</button>
+    <div id="rcriResult" class="result-box"></div>
+
+    <button class="backBtn">⬅ Back</button>
+  </div>
+
+  <!-- GOLDMAN -->
+  <div id="page-goldman" class="page">
+    <h2>Goldman Cardiac Risk Index</h2>
+    <p>Inputs will be added later…</p>
+
+    <button class="backBtn">⬅ Back</button>
+  </div>
+
+  <!-- PLACEHOLDERS -->
+  <div id="page-pulmonary" class="page"><h2>Pulmonary Risk</h2><button class="backBtn">⬅ Back</button></div>
+  <div id="page-renal" class="page"><h2>Renal Risk</h2><button class="backBtn">⬅ Back</button></div>
+  <div id="page-cerebral" class="page"><h2>Cerebral Risk</h2><button class="backBtn">⬅ Back</button></div>
+  <div id="page-hepatic" class="page"><h2>Hepatic Risk</h2><button class="backBtn">⬅ Back</button></div>
+
 </div>
-<div id="page-rcri" class="page">
-
-  <h2>RCRI – Cardiac Risk Index</h2>
-
-  <label>
-    <input type="checkbox" data-score="1">
-    History of CVA or TIA
-  </label>
-
-  <label>
-    <input type="checkbox" data-score="1">
-    Insulin-Dependent Diabetes Mellitus (IDDM)
-  </label>
-
-  <label>
-    <input type="checkbox" data-score="1">
-    Serum Creatinine &gt; 2 mg/dL
-  </label>
-
-  <label>
-    <input type="checkbox" data-score="1">
-    History of Coronary Artery Disease
-  </label>
-
-  <label>
-    <input type="checkbox" data-score="1">
-    High-Risk Surgery
-  </label>
-
-  <button id="calcRCRI">Calculate RCRI</button>
-
-  <div id="rcriResult" class="result-box"></div>
-
-  <button class="backBtn">⬅ Back</button>
-</div>
-<div id="page-goldman" class="page">
-  <h2>Goldman Cardiac Risk Index</h2>
-
-  <!-- نمونه سوال‌ها، بعداً اضافه می‌کنیم -->
-  <p>Input fields will go here...</p>
-
-  <button id="calcGoldman">Calculate Goldman</button>
-  <div id="goldmanResult" class="result-box"></div>
-
-  <button class="backBtn">⬅ Back</button>
-</div>
-
-<!-- PAGE 3 -->
-<div id="page-pulmonary" class="page">
-  <h2>Pulmonary Risk</h2>
-  
-  <button class="score-btn" data-score="ariscat">Ariscat</button>
-  <button class="score-btn" data-score="arozollah">Arozullah Score</button>
-  <button class="score-btn" data-score="gupta">Gupta Risk Score</button>
-  <button class="score-btn" data-score="sprs">Surgical Pulmonary Risk Score (SPRS) </button>
-  <button class="backBtn">⬅ Back</button>
-</div>
-
-  <!-- PAGE 4 -->
-<div id="page-renal" class="page">
-  <h2>Renal Risk</h2>
-   
-  <button class="score-btn" data-score="spark">SPARK</button>
-  <button class="score-btn" data-score="mehta">Mehta Risk Score</button>
- 
-  <button class="backBtn">⬅ Back</button>
-</div>
-
-  <!-- PAGE 5 -->
-<div id="page-cerebral" class="page">
-  <h2>Cerebral Risk</h2>
-  
-  <button class="score-btn" data-score="mashour">Mashour Risk Index</button>
-  <button class="score-btn" data-score="chadsvas">CHA2DS2-VAS Score</button>
- 
-  <button class="backBtn">⬅ Back</button>
-</div>
-
-  <!-- PAGE 6 -->
-<div id="page-hepatic" class="page">
-  <h2>Hepatic Risk</h2>
-  <button class="score-btn" data-score="posthepatic">Posthepatic Risk Score</button>
-  <button class="backBtn">⬅ Back</button>
-</div>
-
- </div>
 
 <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
