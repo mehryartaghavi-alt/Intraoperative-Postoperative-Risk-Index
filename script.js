@@ -23,7 +23,7 @@
     });
   });
 // PAGE 2 → PAGE GOLDMAN
-score-buttons.forEach(btn => {
+scoreButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     const score = btn.dataset.score;
 
@@ -41,5 +41,6 @@ score-buttons.forEach(btn => {
   });
 
 });
+
 
 
