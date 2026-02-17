@@ -4,43 +4,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showPage(id) {
     pages.forEach(p => p.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
+    const target = document.getElementById(id);
+    if (target) target.classList.add("active");
   }
 
-  // PAGE 1 → PAGE 2,3,...
+  // Main navigation
   document.querySelectorAll(".risk-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       showPage(btn.dataset.target);
     });
   });
 
-  // PAGE 2 → PAGE RCRI
+  // Score navigation
   document.querySelectorAll(".score-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      if (btn.dataset.score === "rcri") {
-        showPage("page-rcri");
-      }
+      showPage(`page-${btn.dataset.score}`);
     });
   });
-// PAGE 2 → PAGE GOLDMAN
-scoreButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const score = btn.dataset.score;
 
-    if (score === "goldman") {
-      showPage("page-goldman");
-    }
-  });
-});
-
-  // BACK → PAGE 1
+  // Back buttons
   document.querySelectorAll(".backBtn").forEach(btn => {
     btn.addEventListener("click", () => {
       showPage("input-page");
     });
   });
 
+  // RCRI calculation
+  const calcBtn = document.getElementById("calcRCRI");
+  if (calcBtn) {
+    calcBtn.addEventListener("click", () => {
+      let score = 0;
+      document
+        .querySelectorAll("#page-rcri input[type=checkbox]:checked")
+        .forEach(cb => score += Number(cb.dataset.score));
+
+      let risk = "";
+      if (score === 0) risk = "Class I – Very Low Risk (<1%)";
+      else if (score === 1) risk = "Class II – Low Risk (~1%)";
+      else if (score === 2) risk = "Class III – Moderate Risk (~6%)";
+      else risk = "Class IV – High Risk (>10%)";
+
+      document.getElementById("rcriResult").innerHTML =
+        `<strong>Total Score:</strong> ${score}<br>${risk}`;
+    });
+  }
+
 });
+
 
 
 
