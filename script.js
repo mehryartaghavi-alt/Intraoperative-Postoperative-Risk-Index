@@ -85,6 +85,34 @@ if (goldmanBtn) {
     `;
   });
 }
+const detskyBtn = document.getElementById("calcDetsky");
+
+if (detskyBtn) {
+  detskyBtn.addEventListener("click", () => {
+
+    let score = 0;
+
+    document
+      .querySelectorAll("#page-detsky input[type=checkbox]:checked")
+      .forEach(cb => score += Number(cb.dataset.score));
+
+    let risk = "";
+
+    if (score <= 15) {
+      risk = "Low risk";
+    } else if (score <= 30) {
+      risk = "Intermediate risk";
+    } else {
+      risk = "High risk";
+    }
+
+    document.getElementById("detskyResult").innerHTML = `
+      <strong>Total Score:</strong> ${score}<br>
+      <strong>Risk Level:</strong> ${risk}
+    `;
+  });
+}
+
 
 
 
