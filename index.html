@@ -55,7 +55,74 @@
   <!-- GOLDMAN -->
   <div id="page-goldman" class="page">
     <h2>Goldman Cardiac Risk Index</h2>
-    <p>Inputs will be added later…</p>
+    <div id="page-goldman" class="page">
+
+    <label>
+    <input type="checkbox" data-score="10">
+    Myocardial infarction within last 6 months
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="11">
+    S3 gallop or elevated JVP (CHF sign)
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="3">
+    Significant aortic stenosis
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="7">
+    Rhythm other than sinus (AF, frequent PAC/PVC)
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="7">
+    &gt;5 premature ventricular contractions per minute
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="4">
+    Emergency surgery
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="3">
+    Intraperitoneal, intrathoracic, or aortic surgery
+  </label>
+
+  <!-- POOR MEDICAL CONDITION -->
+  <hr>
+
+  <label>
+    <input type="checkbox" data-score="3">
+    Poor General Medical Condition (Yes / No)
+  </label>
+
+  <div style="font-size:14px; color:#555; margin-left:15px;">
+    <em>Defined as one or more of the following:</em>
+    <ul>
+      <li>PaO₂ &lt; 60 mmHg</li>
+      <li>PaCO₂ &gt; 50 mmHg</li>
+      <li>K⁺ &lt; 3.0 mEq/L</li>
+      <li>HCO₃⁻ &lt; 20 mEq/L</li>
+      <li>BUN &gt; 50 mg/dL</li>
+      <li>Creatinine &gt; 3 mg/dL</li>
+      <li>Abnormal AST</li>
+      <li>Chronic liver disease</li>
+      <li>Bedridden state</li>
+    </ul>
+  </div>
+
+  <button id="calcGoldman">Calculate Goldman Score</button>
+
+  <div id="goldmanResult" class="result-box"></div>
+
+  <button class="backBtn" data-target="page-cardiac">⬅ Back</button>
+
+</div>
+
 
     <button class="backBtn">⬅ Back</button>
   </div>
@@ -94,6 +161,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
