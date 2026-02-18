@@ -50,6 +50,42 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+const goldmanBtn = document.getElementById("calcGoldman");
+
+if (goldmanBtn) {
+  goldmanBtn.addEventListener("click", () => {
+
+    let score = 0;
+
+    document
+      .querySelectorAll("#page-goldman input[type=checkbox]:checked")
+      .forEach(cb => score += Number(cb.dataset.score));
+
+    let riskClass = "";
+    let riskText = "";
+
+    if (score <= 5) {
+      riskClass = "Class I";
+      riskText = "~1% cardiac complication risk";
+    } else if (score <= 12) {
+      riskClass = "Class II";
+      riskText = "~7% cardiac complication risk";
+    } else if (score <= 25) {
+      riskClass = "Class III";
+      riskText = "~14% cardiac complication risk";
+    } else {
+      riskClass = "Class IV";
+      riskText = "Very high risk (~78%)";
+    }
+
+    document.getElementById("goldmanResult").innerHTML = `
+      <strong>Total Score:</strong> ${score}<br>
+      <strong>${riskClass}</strong><br>
+      ${riskText}
+    `;
+  });
+}
+
 
 
 
