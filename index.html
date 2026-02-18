@@ -91,10 +91,57 @@
 
     <button class="backBtn">⬅ Back</button>
   </div>
+  
   <!-- Detsky -->
 <div id="page-detsky" class="page">
-    <h2>Detsky Cardiac Risk Index</h2>
-    <p>Inputs will be added later…</p>
+    <h2>Detsky Modified Cardiac Risk Index</h2>
+
+  <!-- ACTIVE ISCHEMIA -->
+  <h4>Active / Unstable Ischemia</h4>
+  <label><input type="checkbox" data-score="10">Myocardial infarction within last 6 months</label>
+  <label><input type="checkbox" data-score="10">Angina – CCS Class III</label>
+  <label><input type="checkbox" data-score="20">Angina – CCS Class IV</label>
+
+  <!-- PRIOR MI -->
+  <h4>Prior Myocardial Infarction</h4>
+  <label><input type="checkbox" data-score="5">Prior MI (more than 6 months ago)</label>
+
+  <!-- CHF -->
+  <h4>Congestive Heart Failure</h4>
+  <label><input type="checkbox" data-score="10">History of pulmonary edema</label>
+  <label><input type="checkbox" data-score="20">Pulmonary edema within last week</label>
+
+  <!-- RHYTHM -->
+  <h4>Rhythm & Valvular Disease</h4>
+  <label><input type="checkbox" data-score="5">Rhythm other than sinus</label>
+  <label><input type="checkbox" data-score="5">Significant aortic stenosis</label>
+
+  <!-- POOR MEDICAL -->
+  <hr>
+  <label><input type="checkbox" data-score="5">Poor General Medical Condition (Yes / No)</label>
+
+  <div style="font-size:14px; color:#555; margin-left:15px;">
+    <em>Defined as one or more of the following:</em>
+    <ul>
+      <li>PaO₂ &lt; 60 mmHg</li>
+      <li>PaCO₂ &gt; 50 mmHg</li>
+      <li>K⁺ &lt; 3.0 mEq/L</li>
+      <li>HCO₃⁻ &lt; 20 mEq/L</li>
+      <li>BUN &gt; 50 mg/dL</li>
+      <li>Creatinine &gt; 3 mg/dL</li>
+      <li>Abnormal AST</li>
+      <li>Chronic liver disease</li>
+      <li>Bedridden state</li>
+    </ul>
+  </div>
+
+  <button id="calcDetsky">Calculate Detsky Score</button>
+
+  <div id="detskyResult" class="result-box"></div>
+
+  <button class="backBtn" data-target="page-cardiac">⬅ Back</button>
+
+</div>
 
     <button class="backBtn">⬅ Back</button>
   </div>
@@ -126,6 +173,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
