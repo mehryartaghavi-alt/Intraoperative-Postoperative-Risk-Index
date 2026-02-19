@@ -172,6 +172,43 @@ if (eagleBtn) {
     `;
   });
 }
+const ariscatBtn = document.getElementById("calcAriscat");
+
+if (ariscatBtn) {
+  ariscatBtn.addEventListener("click", () => {
+
+    let score = 0;
+
+    score += Number(document.getElementById("ariscatAge").value);
+    score += Number(document.getElementById("ariscatSpO2").value);
+    score += Number(document.getElementById("ariscatSurgery").value);
+    score += Number(document.getElementById("ariscatDuration").value);
+
+    if (document.getElementById("ariscatInfection").checked) score += 17;
+    if (document.getElementById("ariscatAnemia").checked) score += 11;
+
+    let risk = "";
+    let riskPercent = "";
+
+    if (score < 26) {
+      risk = "Low Risk";
+      riskPercent = "~1.6% PPC";
+    } else if (score < 45) {
+      risk = "Intermediate Risk";
+      riskPercent = "~13% PPC";
+    } else {
+      risk = "High Risk";
+      riskPercent = "~42% PPC";
+    }
+
+    document.getElementById("ariscatResult").innerHTML = `
+      <strong>Total Score:</strong> ${score}<br>
+      <strong>${risk}</strong><br>
+      ${riskPercent}
+    `;
+  });
+}
+
 
 
 
