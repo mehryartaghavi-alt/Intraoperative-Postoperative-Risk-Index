@@ -113,6 +113,38 @@ if (detskyBtn) {
   });
 }
 
+const guptaBtn = document.getElementById("calcGupta");
+
+if (guptaBtn) {
+  guptaBtn.addEventListener("click", () => {
+
+    const age = Number(document.getElementById("guptaAge").value);
+    const asa = Number(document.getElementById("guptaASA").value);
+    const func = Number(document.getElementById("guptaFunc").value);
+    const cr = document.getElementById("guptaCr").checked ? 0.61 : 0;
+    const surg = document.getElementById("guptaSurg").checked ? 0.80 : 0;
+
+    const intercept = -5.25;
+    const ageCoef = 0.02 * age;
+
+    const x = intercept + ageCoef + asa + func + cr + surg;
+
+    const risk = Math.exp(x) / (1 + Math.exp(x));
+    const percent = (risk * 100).toFixed(2);
+
+    let interpretation = "";
+
+    if (percent < 1) interpretation = "Low risk";
+    else if (percent < 5) interpretation = "Moderate risk";
+    else interpretation = "High risk";
+
+    document.getElementById("guptaResult").innerHTML = `
+      <strong>Predicted MICA Risk:</strong> ${percent}%<br>
+      <strong>Risk Category:</strong> ${interpretation}
+    `;
+  });
+}
+
 
 
 
