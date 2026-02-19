@@ -139,12 +139,52 @@
   
 
    <!-- Gupta -->
-<div id="page-gupta" class="page">
-    <h2>Gupta Cardiac Risk Index</h2>
-    <p>Inputs will be added later…</p>
+<div id="page-gupta-cardiac" class="page">
 
-    <button class="backBtn">⬅ Back</button>
-  </div>
+  <h2>Gupta Cardiac Risk (MICA)</h2>
+
+  <label>
+    Age:
+    <input type="number" id="guptaAge" min="18" max="100">
+  </label>
+
+  <label>
+    ASA Class:
+    <select id="guptaASA">
+      <option value="0">I–II</option>
+      <option value="0.61">III</option>
+      <option value="1.37">IV</option>
+      <option value="1.90">V</option>
+    </select>
+  </label>
+
+  <label>
+    Functional Status:
+    <select id="guptaFunc">
+      <option value="0">Independent</option>
+      <option value="0.65">Partially dependent</option>
+      <option value="1.03">Totally dependent</option>
+    </select>
+  </label>
+
+  <label>
+    <input type="checkbox" id="guptaCr">
+    Creatinine &gt; 1.5 mg/dL
+  </label>
+
+  <label>
+    <input type="checkbox" id="guptaSurg">
+    High-risk surgery
+  </label>
+
+  <button id="calcGupta">Calculate MICA Risk</button>
+
+  <div id="guptaResult" class="result-box"></div>
+
+  <button class="backBtn" data-target="page-cardiac">⬅ Back</button>
+
+</div>
+
 
    <!-- Eagle -->
 <div id="page-eagle" class="page">
@@ -165,6 +205,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
