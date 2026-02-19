@@ -299,6 +299,86 @@
 
 </div>
 
+  <div id="page-arrozullah" class="page">
+
+  <h2>ARROZULLAH Score For Postoperative respiratory failure</h2>
+
+  <!-- Age -->
+  <label>
+    Age:
+    <select id="arrozullahAge">
+      <option value="0">≤60 years</option>
+      <option value="4">61–70 years</option>
+      <option value="6">>70 years</option>
+    </select>
+  </label>
+
+   <!-- COPD -->
+  <label>
+    <input type="checkbox" id="arrozullahCOPD">
+    History of COPD
+  </label>
+
+     <!-- CHF -->
+  <label>
+    <input type="checkbox" id="arrozullahCHF">
+    History of CHF
+  </label>
+
+  <!-- Albumin -->
+  <label>
+    <input type="checkbox" id="arrozullahAlbumin">
+    Albumin <30 g/dL
+  </label>
+  <!-- BUN -->
+  <label>
+    <input type="checkbox" id="arrozullahBUN">
+    BUN >30 g/dL
+  </label>
+
+     <!-- Sepsis -->
+  <label>
+    <input type="checkbox" id="arrozullahSepsis">
+    Sepsis
+  </label>
+
+     <!-- Emergency -->
+  <label>
+    <input type="checkbox" id="arrozullahEmergency">
+    Emergency Surgery
+  </label>
+    
+  <!-- Surgical Type -->
+  <label>
+    Surgical incision:
+    <select id="type of Surgery">
+      <option value="27">Aortic/option>
+      <option value="14">Upper abdominal</option>
+      <option value="21">Intrathoracic</option>
+      <option value="14">Neurosurgery</option>
+      <option value="14">Vascular</option>
+      <option value="11">Neck Surgery</option>
+      <option value="0">Other Surgery</option>
+    </select>
+  </label>
+
+     <!-- Functional Class -->
+  <label>
+    functional class:
+    <select id="Functional Class">
+      <option value="0">Good/option>
+      <option value="7">Dependant</option>
+     </select>
+  </label>
+
+  <button id="calcArrozullah">Calculate ARROZULLAH</button>
+
+  <div id="arrozullahResult" class="result-box"></div>
+
+  <button class="backBtn" data-target="page-pulmonary">⬅ Back</button>
+
+</div>
+
    <!-- RENAL -->
   <div id="page-renal" class="page">
     <h2>Renal Risk Assessment</h2>
@@ -332,6 +412,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
