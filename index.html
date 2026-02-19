@@ -188,11 +188,42 @@
 
    <!-- Eagle -->
 <div id="page-eagle" class="page">
-    <h2>Eagle Cardiac Risk Index</h2>
-    <p>Inputs will be added later…</p>
 
-    <button class="backBtn">⬅ Back</button>
-  </div>
+  <h2>Eagle Cardiac Risk Criteria</h2>
+
+  <label>
+    <input type="checkbox" data-score="1">
+    Age > 70 years
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="1">
+    Angina
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="1">
+    Q-wave on ECG (prior MI)
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="1">
+    History of ventricular ectopy (frequent PVCs)
+  </label>
+
+  <label>
+    <input type="checkbox" data-score="1">
+    Diabetes mellitus
+  </label>
+
+  <button id="calcEagle">Calculate Eagle Score</button>
+
+  <div id="eagleResult" class="result-box"></div>
+
+  <button class="backBtn" data-target="page-cardiac">⬅ Back</button>
+
+</div>
+
   
   <!-- PLACEHOLDERS -->
   <div id="page-pulmonary" class="page"><h2>Pulmonary Risk</h2><button class="backBtn">⬅ Back</button></div>
@@ -205,6 +236,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
