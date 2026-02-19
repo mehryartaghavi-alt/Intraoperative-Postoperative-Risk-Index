@@ -145,6 +145,34 @@ if (guptaBtn) {
   });
 }
 
+const eagleBtn = document.getElementById("calcEagle");
+
+if (eagleBtn) {
+  eagleBtn.addEventListener("click", () => {
+
+    let score = 0;
+
+    document
+      .querySelectorAll("#page-eagle input[type=checkbox]:checked")
+      .forEach(cb => score += Number(cb.dataset.score));
+
+    let risk = "";
+
+    if (score <= 1) {
+      risk = "Low risk";
+    } else if (score === 2) {
+      risk = "Moderate risk";
+    } else {
+      risk = "High risk";
+    }
+
+    document.getElementById("eagleResult").innerHTML = `
+      <strong>Total Score:</strong> ${score}<br>
+      <strong>Risk Level:</strong> ${risk}
+    `;
+  });
+}
+
 
 
 
