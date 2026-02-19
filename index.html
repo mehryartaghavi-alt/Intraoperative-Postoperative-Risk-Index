@@ -225,7 +225,7 @@
 </div>
 
   
-  <!-- CARDIAC -->
+  <!-- PULMONARY -->
   <div id="page-oulmonary" class="page">
     <h2>Pulmonary Risk Assessment</h2>
 
@@ -235,10 +235,73 @@
     <button class="score-btn" data-score="sprs">Surgical Pulmonary Risk Score (SPRS)</button>
     <button class="backBtn">⬅ Back</button>
   </div>
+<div id="page-ariscat" class="page">
+
+  <h2>ARISCAT Pulmonary Risk Score</h2>
+
+  <!-- Age -->
+  <label>
+    Age:
+    <select id="ariscatAge">
+      <option value="0">≤50 years</option>
+      <option value="3">51–80 years</option>
+      <option value="16">>80 years</option>
+    </select>
+  </label>
+
+  <!-- SpO2 -->
+  <label>
+    Preoperative SpO₂:
+    <select id="ariscatSpO2">
+      <option value="0">≥96%</option>
+      <option value="8">91–95%</option>
+      <option value="24">≤90%</option>
+    </select>
+  </label>
+
+  <!-- Recent Infection -->
+  <label>
+    <input type="checkbox" id="ariscatInfection">
+    Respiratory infection in last month
+  </label>
+
+  <!-- Anemia -->
+  <label>
+    <input type="checkbox" id="ariscatAnemia">
+    Hemoglobin <10 g/dL
+  </label>
+
+  <!-- Surgical Type -->
+  <label>
+    Surgical incision:
+    <select id="ariscatSurgery">
+      <option value="0">Peripheral</option>
+      <option value="15">Upper abdominal</option>
+      <option value="24">Intrathoracic</option>
+    </select>
+  </label>
+
+  <!-- Duration -->
+  <label>
+    Duration of surgery:
+    <select id="ariscatDuration">
+      <option value="0">&lt;2 hours</option>
+      <option value="16">2–3 hours</option>
+      <option value="23">&gt;3 hours</option>
+    </select>
+  </label>
+
+  <button id="calcAriscat">Calculate ARISCAT</button>
+
+  <div id="ariscatResult" class="result-box"></div>
+
+  <button class="backBtn" data-target="page-pulmonary">⬅ Back</button>
+
+</div>
 
   
   <!-- PLACEHOLDERS -->
-  <div id="page-pulmonary" class="page"><h2>Pulmonary Risk</h2><button class="backBtn">⬅ Back</button></div>
+ 
   <div id="page-renal" class="page"><h2>Renal Risk</h2><button class="backBtn">⬅ Back</button></div>
   <div id="page-cerebral" class="page"><h2>Cerebral Risk</h2><button class="backBtn">⬅ Back</button></div>
   <div id="page-hepatic" class="page"><h2>Hepatic Risk</h2><button class="backBtn">⬅ Back</button></div>
@@ -248,6 +311,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
