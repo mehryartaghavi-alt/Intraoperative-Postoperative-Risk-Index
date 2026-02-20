@@ -253,7 +253,7 @@ function calculateArrozullah() {
     riskPercent = "26%";
   }
 
-  document.getElementById("arroz-result").innerHTML =
+  document.getElementById("arrozullahResult").innerHTML =
     `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
 }
 
@@ -303,9 +303,10 @@ function calculateGuptar() {
     riskPercent = "15.3%";
   }
 
-  document.getElementById("guptar-result").innerHTML =
+  document.getElementById("guptarResult").innerHTML =
     `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
 }
+
 
 
 
