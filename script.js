@@ -259,7 +259,7 @@ function calculateGuptar() {
   const bun = document.getElementById("guptarBun").checked;
   const dependent = document.getElementById("guptarDependent").checked;
   const copd = document.getElementById("guptarCopd").checked;
-  const weightloss = document.getElementById("guptarWeightLoss").checked;
+  const weightLoss = document.getElementById("guptarWeightLoss").checked; // حرف L بزرگ
   const age = Number(document.getElementById("guptarAge").value);
 
   score += surgery;
@@ -293,7 +293,6 @@ function calculateGuptar() {
   document.getElementById("guptarResult").innerHTML =
     `Score: ${score}<br>${riskClass} – Risk: ${riskPercent}`;
 }
-
 
 
 
