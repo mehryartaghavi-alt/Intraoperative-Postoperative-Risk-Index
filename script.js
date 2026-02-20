@@ -261,15 +261,14 @@ function calculateGuptar() {
   let score = 0;
 
   const surgery = document.getElementById("surgery-type").value;
-  const emergency = document.getElementById("smoking").checked;
-  const albumin = document.getElementById("hematocrite").checked;
+  const smoking = document.getElementById("smoking").checked;
+  const hematocrite = document.getElementById("hematocrite").checked;
   const bun = document.getElementById("bun").checked;
   const dependent = document.getElementById("dependent").checked;
   const copd = document.getElementById("copd").checked;
+  const weightLoss = document.getElementById("weightLoss").checked;
   const age = parseInt(document.getElementById("age").value);
-  const copd = document.getElementById("weight loss").checked;
-  
-  // Surgery type
+
   score += parseInt(surgery);
 
   if (smoking) score += 4;
@@ -277,8 +276,8 @@ function calculateGuptar() {
   if (bun) score += 7;
   if (dependent) score += 10;
   if (copd) score += 7;
-  if (weight loss) score += 7;
-  
+  if (weightLoss) score += 7;
+
   if (age >= 80) score += 12;
   else if (age >= 70) score += 8;
   else if (age >= 60) score += 4;
@@ -303,10 +302,9 @@ function calculateGuptar() {
     riskPercent = "15.3%";
   }
 
-  document.getElementById("guptarResult").innerHTML =
+  document.getElementById("guptar-result").innerHTML =
     `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
 }
-
 
 
 
