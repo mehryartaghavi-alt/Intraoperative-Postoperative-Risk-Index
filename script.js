@@ -257,6 +257,57 @@ function calculateArrozullah() {
     `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
 }
 
+function calculateArrozullah() {
+  let score = 0;
+
+  const surgery = document.getElementById("surgery-type").value;
+  const emergency = document.getElementById("smoking").checked;
+  const albumin = document.getElementById("hematocrite").checked;
+  const bun = document.getElementById("bun").checked;
+  const dependent = document.getElementById("dependent").checked;
+  const copd = document.getElementById("copd").checked;
+  const age = parseInt(document.getElementById("age").value);
+  const copd = document.getElementById("weight loss").checked;
+  
+  // Surgery type
+  score += parseInt(surgery);
+
+  if (smoking) score += 4;
+  if (hematocrite) score += 8;
+  if (bun) score += 7;
+  if (dependent) score += 10;
+  if (copd) score += 7;
+  if (weight loss) score += 7;
+  
+  if (age >= 80) score += 12;
+  else if (age >= 70) score += 8;
+  else if (age >= 60) score += 4;
+
+  let riskClass = "";
+  let riskPercent = "";
+
+  if (score <= 15) {
+    riskClass = "Class 1";
+    riskPercent = "0.2%";
+  } else if (score <= 25) {
+    riskClass = "Class 2";
+    riskPercent = "1.2%";
+  } else if (score <= 40) {
+    riskClass = "Class 3";
+    riskPercent = "4%";
+  } else if (score <= 55) {
+    riskClass = "Class 4";
+    riskPercent = "9.2%";
+  } else {
+    riskClass = "Class 5";
+    riskPercent = "15.3%";
+  }
+
+  document.getElementById("guptar-result").innerHTML =
+    `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
+}
+
+
 
 
 
