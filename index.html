@@ -231,7 +231,7 @@
 
     <button class="score-btn" data-score="ariscat">Ariscat Criteria </button>
     <button class="score-btn" data-score="arrozullah">Arrozullah Score</button>
-    <button class="score-btn" data-score="gupta">Gupta Risk Score</button>
+    <button class="score-btn" data-score="guptar">Gupta Risk Score of pneumonia</button>
     <button class="score-btn" data-score="sprs">Surgical Pulmonary Risk Score (SPRS)</button>
     <button class="backBtn">⬅ Back</button>
   </div>
@@ -340,6 +340,48 @@
 
 </div>
 
+  <div id="page-guptar" class="page">
+
+  <h2>Gupta Risk Score for Pneumonia</h2>
+
+  <!-- Age -->
+  <label>Age:</label>
+  <input type="number" id="age" min="18" placeholder="Enter age">
+
+  <hr>
+
+  <!-- Surgery Type -->
+  <label>Surgery Type:</label>
+  <select id="surgery-type">
+    <option value="0">Other Surgery</option>
+    <option value="5">Vascular Surgery (15)</option>
+    <option value="8">Neurosurgery (18)</option>
+    <option value="8">Upper Abdominal Surgery (21)</option>
+    <option value="8">Thoracic Surgery (24)</option>
+    <option value="6">Head&Neck Surgery (27)</option>
+  </select>
+
+  <hr>
+
+  <!-- Clinical Factors -->
+  <label><input type="checkbox" id="smoking"> Smoking (4)</label><br>
+  <label><input type="checkbox" id="hematocrite"> Hct<30% (8)</label><br>
+  <label><input type="checkbox" id="bun"> BUN &gt; 30 mg/dL (7)</label><br>
+  <label><input type="checkbox" id="dependent"> Dependent Functional Status (10)</label><br>
+  <label><input type="checkbox" id="weight loss"> Weight loss>305 (7)</label><br>
+  <label><input type="checkbox" id="copd"> COPD (7)</label>
+
+  <hr>
+
+  <button onclick="calculateGupta()">Calculate</button>
+
+  <div id="guptar-result" style="margin-top:15px; font-weight:bold;"></div>
+
+  <br>
+  <button class="backBtn">Back</button>
+
+</div>
+
    <!-- RENAL -->
   <div id="page-renal" class="page">
     <h2>Renal Risk Assessment</h2>
@@ -373,6 +415,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
