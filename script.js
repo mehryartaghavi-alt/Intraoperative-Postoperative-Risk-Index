@@ -8,32 +8,34 @@ document.addEventListener("DOMContentLoaded", () => {
     if (target) target.classList.add("active");
   }
 
-  // Main navigation
+  /* ================= NAVIGATION ================= */
+
   document.querySelectorAll(".risk-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       showPage(btn.dataset.target);
     });
   });
 
-  // Score navigation
   document.querySelectorAll(".score-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       showPage(`page-${btn.dataset.score}`);
     });
   });
 
-  // Back buttons
   document.querySelectorAll(".backBtn").forEach(btn => {
     btn.addEventListener("click", () => {
-      showPage("input-page");
+      const target = btn.dataset.target || "input-page";
+      showPage(target);
     });
   });
 
-  // RCRI calculation
-  const calcBtn = document.getElementById("calcRCRI");
-  if (calcBtn) {
-    calcBtn.addEventListener("click", () => {
+  /* ================= RCRI ================= */
+
+  const calcRCRI = document.getElementById("calcRCRI");
+  if (calcRCRI) {
+    calcRCRI.addEventListener("click", () => {
       let score = 0;
+
       document
         .querySelectorAll("#page-rcri input[type=checkbox]:checked")
         .forEach(cb => score += Number(cb.dataset.score));
@@ -49,264 +51,93 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* ================= GOLDMAN ================= */
+
+  const calcGoldman = document.getElementById("calcGoldman");
+  if (calcGoldman) {
+    calcGoldman.addEventListener("click", () => {
+      let score = 0;
+
+      document
+        .querySelectorAll("#page-goldman input[type=checkbox]:checked")
+        .forEach(cb => score += Number(cb.dataset.score));
+
+      let riskClass = "";
+      let riskText = "";
+
+      if (score <= 5) {
+        riskClass = "Class I";
+        riskText = "~1% cardiac complication risk";
+      } else if (score <= 12) {
+        riskClass = "Class II";
+        riskText = "~7% cardiac complication risk";
+      } else if (score <= 25) {
+        riskClass = "Class III";
+        riskText = "~14% cardiac complication risk";
+      } else {
+        riskClass = "Class IV";
+        riskText = "Very high risk (~78%)";
+      }
+
+      document.getElementById("goldmanResult").innerHTML =
+        `<strong>Total Score:</strong> ${score}<br>
+         <strong>${riskClass}</strong><br>${riskText}`;
+    });
+  }
+
+  /* ================= DETSKY ================= */
+
+  const calcDetsky = document.getElementById("calcDetsky");
+  if (calcDetsky) {
+    calcDetsky.addEventListener("click", () => {
+      let score = 0;
+
+      document
+        .querySelectorAll("#page-detsky input[type=checkbox]:checked")
+        .forEach(cb => score += Number(cb.dataset.score));
+
+      let risk = "";
+      if (score <= 15) risk = "Low risk";
+      else if (score <= 30) risk = "Intermediate risk";
+      else risk = "High risk";
+
+      document.getElementById("detskyResult").innerHTML =
+        `<strong>Total Score:</strong> ${score}<br>
+         <strong>Risk Level:</strong> ${risk}`;
+    });
+  }
+
+  /* ================= GUPTA MICA ================= */
+
+  const calcGupta = document.getElementById("calcGupta");
+  if (calcGupta) {
+    calcGupta.addEventListener("click", () => {
+
+      const age = Number(document.getElementById("guptaAge").value);
+      const asa = Number(document.getElementById("guptaASA").value);
+      const func = Number(document.getElementById("guptaFunc").value);
+      const cr = document.getElementById("guptaCr").checked ? 0.61 : 0;
+      const surg = document.getElementById("guptaSurg").checked ? 0.80 : 0;
+
+      const intercept = -5.25;
+      const ageCoef = 0.02 * age;
+      const x = intercept + ageCoef + asa + func + cr + surg;
+
+      const risk = Math.exp(x) / (1 + Math.exp(x));
+      const percent = (risk * 100).toFixed(2);
+
+      let interpretation = "";
+      if (percent < 1) interpretation = "Low risk";
+      else if (percent < 5) interpretation = "Moderate risk";
+      else interpretation = "High risk";
+
+      document.getElementById("guptaResult").innerHTML =
+        `<strong>Predicted MICA Risk:</strong> ${percent}%<br>
+         <strong>Risk Category:</strong> ${interpretation}`;
+    });
+  }
+
 });
-const goldmanBtn = document.getElementById("calcGoldman");
-
-if (goldmanBtn) {
-  goldmanBtn.addEventListener("click", () => {
-
-    let score = 0;
-
-    document
-      .querySelectorAll("#page-goldman input[type=checkbox]:checked")
-      .forEach(cb => score += Number(cb.dataset.score));
-
-    let riskClass = "";
-    let riskText = "";
-
-    if (score <= 5) {
-      riskClass = "Class I";
-      riskText = "~1% cardiac complication risk";
-    } else if (score <= 12) {
-      riskClass = "Class II";
-      riskText = "~7% cardiac complication risk";
-    } else if (score <= 25) {
-      riskClass = "Class III";
-      riskText = "~14% cardiac complication risk";
-    } else {
-      riskClass = "Class IV";
-      riskText = "Very high risk (~78%)";
-    }
-
-    document.getElementById("goldmanResult").innerHTML = `
-      <strong>Total Score:</strong> ${score}<br>
-      <strong>${riskClass}</strong><br>
-      ${riskText}
-    `;
-  });
-}
-const detskyBtn = document.getElementById("calcDetsky");
-
-if (detskyBtn) {
-  detskyBtn.addEventListener("click", () => {
-
-    let score = 0;
-
-    document
-      .querySelectorAll("#page-detsky input[type=checkbox]:checked")
-      .forEach(cb => score += Number(cb.dataset.score));
-
-    let risk = "";
-
-    if (score <= 15) {
-      risk = "Low risk";
-    } else if (score <= 30) {
-      risk = "Intermediate risk";
-    } else {
-      risk = "High risk";
-    }
-
-    document.getElementById("detskyResult").innerHTML = `
-      <strong>Total Score:</strong> ${score}<br>
-      <strong>Risk Level:</strong> ${risk}
-    `;
-  });
-}
-
-const guptaBtn = document.getElementById("calcGupta");
-
-if (guptaBtn) {
-  guptaBtn.addEventListener("click", () => {
-
-    const age = Number(document.getElementById("guptaAge").value);
-    const asa = Number(document.getElementById("guptaASA").value);
-    const func = Number(document.getElementById("guptaFunc").value);
-    const cr = document.getElementById("guptaCr").checked ? 0.61 : 0;
-    const surg = document.getElementById("guptaSurg").checked ? 0.80 : 0;
-
-    const intercept = -5.25;
-    const ageCoef = 0.02 * age;
-
-    const x = intercept + ageCoef + asa + func + cr + surg;
-
-    const risk = Math.exp(x) / (1 + Math.exp(x));
-    const percent = (risk * 100).toFixed(2);
-
-    let interpretation = "";
-
-    if (percent < 1) interpretation = "Low risk";
-    else if (percent < 5) interpretation = "Moderate risk";
-    else interpretation = "High risk";
-
-    document.getElementById("guptaResult").innerHTML = `
-      <strong>Predicted MICA Risk:</strong> ${percent}%<br>
-      <strong>Risk Category:</strong> ${interpretation}
-    `;
-  });
-}
-
-const eagleBtn = document.getElementById("calcEagle");
-
-if (eagleBtn) {
-  eagleBtn.addEventListener("click", () => {
-
-    let score = 0;
-
-    document
-      .querySelectorAll("#page-eagle input[type=checkbox]:checked")
-      .forEach(cb => score += Number(cb.dataset.score));
-
-    let risk = "";
-
-    if (score <= 1) {
-      risk = "Low risk";
-    } else if (score === 2) {
-      risk = "Moderate risk";
-    } else {
-      risk = "High risk";
-    }
-
-    document.getElementById("eagleResult").innerHTML = `
-      <strong>Total Score:</strong> ${score}<br>
-      <strong>Risk Level:</strong> ${risk}
-    `;
-  });
-}
-const ariscatBtn = document.getElementById("calcAriscat");
-
-if (ariscatBtn) {
-  ariscatBtn.addEventListener("click", () => {
-
-    let score = 0;
-
-    score += Number(document.getElementById("ariscatAge").value);
-    score += Number(document.getElementById("ariscatSpO2").value);
-    score += Number(document.getElementById("ariscatSurgery").value);
-    score += Number(document.getElementById("ariscatDuration").value);
-
-    if (document.getElementById("ariscatInfection").checked) score += 17;
-    if (document.getElementById("ariscatAnemia").checked) score += 11;
-
-    let risk = "";
-    let riskPercent = "";
-
-    if (score < 26) {
-      risk = "Low Risk";
-      riskPercent = "~1.6% PPC";
-    } else if (score < 45) {
-      risk = "Intermediate Risk";
-      riskPercent = "~13% PPC";
-    } else {
-      risk = "High Risk";
-      riskPercent = "~42% PPC";
-    }
-
-    document.getElementById("ariscatResult").innerHTML = `
-      <strong>Total Score:</strong> ${score}<br>
-      <strong>${risk}</strong><br>
-      ${riskPercent}
-    `;
-  });
-}
-
-function calculateArrozullah() {
-  let score = 0;
-
-  const surgery = document.getElementById("surgery-type").value;
-  const emergency = document.getElementById("emergency").checked;
-  const albumin = document.getElementById("albumin").checked;
-  const bun = document.getElementById("bun").checked;
-  const dependent = document.getElementById("dependent").checked;
-  const copd = document.getElementById("copd").checked;
-  const age = parseInt(document.getElementById("age").value);
-
-  // Surgery type
-  score += parseInt(surgery);
-
-  if (emergency) score += 11;
-  if (albumin) score += 8;
-  if (bun) score += 8;
-  if (dependent) score += 7;
-  if (copd) score += 6;
-
-  if (age >= 80) score += 13;
-  else if (age >= 70) score += 9;
-  else if (age >= 60) score += 4;
-
-  let riskClass = "";
-  let riskPercent = "";
-
-  if (score <= 10) {
-    riskClass = "Class 1";
-    riskPercent = "0.5%";
-  } else if (score <= 19) {
-    riskClass = "Class 2";
-    riskPercent = "1.8%";
-  } else if (score <= 27) {
-    riskClass = "Class 3";
-    riskPercent = "4.2%";
-  } else if (score <= 40) {
-    riskClass = "Class 4";
-    riskPercent = "10%";
-  } else {
-    riskClass = "Class 5";
-    riskPercent = "26%";
-  }
-
-  document.getElementById("arrozullahResult").innerHTML =
-    `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
-}
-
-function calculateGuptar() {
-  let score = 0;
-
-  const surgery = document.getElementById("surgery-type").value;
-  const smoking = document.getElementById("smoking").checked;
-  const hematocrite = document.getElementById("hematocrite").checked;
-  const bun = document.getElementById("bun").checked;
-  const dependent = document.getElementById("dependent").checked;
-  const copd = document.getElementById("copd").checked;
-  const weightLoss = document.getElementById("weightLoss").checked;
-  const age = parseInt(document.getElementById("age").value);
-
-  score += parseInt(surgery);
-
-  if (smoking) score += 4;
-  if (hematocrite) score += 8;
-  if (bun) score += 7;
-  if (dependent) score += 10;
-  if (copd) score += 7;
-  if (weightLoss) score += 7;
-
-  if (age >= 80) score += 12;
-  else if (age >= 70) score += 8;
-  else if (age >= 60) score += 4;
-
-  let riskClass = "";
-  let riskPercent = "";
-
-  if (score <= 15) {
-    riskClass = "Class 1";
-    riskPercent = "0.2%";
-  } else if (score <= 25) {
-    riskClass = "Class 2";
-    riskPercent = "1.2%";
-  } else if (score <= 40) {
-    riskClass = "Class 3";
-    riskPercent = "4%";
-  } else if (score <= 55) {
-    riskClass = "Class 4";
-    riskPercent = "9.2%";
-  } else {
-    riskClass = "Class 5";
-    riskPercent = "15.3%";
-  }
-
-  document.getElementById("guptar-result").innerHTML =
-    `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
-}
-
-
 
 
 
