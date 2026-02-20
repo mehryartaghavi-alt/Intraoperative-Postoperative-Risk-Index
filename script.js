@@ -257,7 +257,7 @@ function calculateArrozullah() {
     `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
 }
 
-function calculateArrozullah() {
+function calculateGuptar() {
   let score = 0;
 
   const surgery = document.getElementById("surgery-type").value;
@@ -306,6 +306,7 @@ function calculateArrozullah() {
   document.getElementById("guptar-result").innerHTML =
     `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
 }
+
 
 
 
