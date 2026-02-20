@@ -299,83 +299,44 @@
 
 </div>
 
-  <div id="page-arrozullah" class="page">
+ <div id="page-arrozullah" class="page">
 
-  <h2>ARROZULLAH Score For Postoperative respiratory failure</h2>
+  <h2>Arrozullah Respiratory Failure Risk Index</h2>
 
   <!-- Age -->
-  <label>
-    Age:
-    <select id="arrozullahAge">
-      <option value="0">≤60 years</option>
-      <option value="4">61–70 years</option>
-      <option value="6">>70 years</option>
-    </select>
-  </label>
+  <label>Age:</label>
+  <input type="number" id="age" min="18" placeholder="Enter age">
 
-   <!-- COPD -->
-  <label>
-    <input type="checkbox" id="arrozullahCOPD">
-    History of COPD
-  </label>
+  <hr>
 
-     <!-- CHF -->
-  <label>
-    <input type="checkbox" id="arrozullahCHF">
-    History of CHF
-  </label>
+  <!-- Surgery Type -->
+  <label>Surgery Type:</label>
+  <select id="surgery-type">
+    <option value="0">Low Risk Surgery</option>
+    <option value="15">Peripheral Vascular Surgery (15)</option>
+    <option value="18">Neurosurgery (18)</option>
+    <option value="21">Upper Abdominal Surgery (21)</option>
+    <option value="24">Thoracic Surgery (24)</option>
+    <option value="27">AAA Surgery (27)</option>
+  </select>
 
-  <!-- Albumin -->
-  <label>
-    <input type="checkbox" id="arrozullahAlbumin">
-    Albumin <30 g/dL
-  </label>
-  <!-- BUN -->
-  <label>
-    <input type="checkbox" id="arrozullahBUN">
-    BUN >30 g/dL
-  </label>
+  <hr>
 
-     <!-- Sepsis -->
-  <label>
-    <input type="checkbox" id="arrozullahSepsis">
-    Sepsis
-  </label>
+  <!-- Clinical Factors -->
+  <label><input type="checkbox" id="emergency"> Emergency Surgery (11)</label><br>
+  <label><input type="checkbox" id="albumin"> Albumin &lt; 3 g/dL (8)</label><br>
+  <label><input type="checkbox" id="bun"> BUN &gt; 30 mg/dL (8)</label><br>
+  <label><input type="checkbox" id="dependent"> Dependent Functional Status (7)</label><br>
+  <label><input type="checkbox" id="copd"> COPD (6)</label>
 
-     <!-- Emergency -->
-  <label>
-    <input type="checkbox" id="arrozullahEmergency">
-    Emergency Surgery
-  </label>
-    
-  <!-- Surgical Type -->
-  <label>
-    Surgical incision:
-    <select id="type of Surgery">
-      <option value="27">Aortic/option>
-      <option value="14">Upper abdominal</option>
-      <option value="21">Intrathoracic</option>
-      <option value="14">Neurosurgery</option>
-      <option value="14">Vascular</option>
-      <option value="11">Neck Surgery</option>
-      <option value="0">Other Surgery</option>
-    </select>
-  </label>
+  <hr>
 
-     <!-- Functional Class -->
-  <label>
-    functional class:
-    <select id="Functional Class">
-      <option value="0">Good/option>
-      <option value="7">Dependant</option>
-     </select>
-  </label>
+  <button onclick="calculateArrozullah()">Calculate</button>
 
-  <button id="calcArrozullah">Calculate ARROZULLAH</button>
+  <div id="arroz-result" style="margin-top:15px; font-weight:bold;"></div>
 
-  <div id="arrozullahResult" class="result-box"></div>
-
-  <button class="backBtn" data-target="page-pulmonary">⬅ Back</button>
+  <br>
+  <button class="backBtn">Back</button>
 
 </div>
 
@@ -412,6 +373,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
