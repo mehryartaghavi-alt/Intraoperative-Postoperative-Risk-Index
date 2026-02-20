@@ -340,47 +340,23 @@
 
 </div>
 
+  
+  <!-- Guptar Page -->
   <div id="page-guptar" class="page">
+    <h2>Gupta Risk Score for Pneumonia</h2>
 
-  <h2>Gupta Risk Score for Pneumonia</h2>
+    <label>Age:</label>
+    <input type="number" id="guptarAge" min="18" placeholder="Enter age">
 
-  <!-- Age -->
-  <label>Age:</label>
-  <input type="number" id="guptarAge" min="18" placeholder="Enter age">
+    <hr>
 
-  <hr>
-
-  <!-- Surgery Type -->
-  <label>Surgery Type:</label>
-  <select id="guptarSurgery">
-    <option value="0">Other Surgery</option>
-    <option value="5">Vascular Surgery (15)</option>
-    <option value="8">Neurosurgery (18)</option>
-    <option value="8">Upper Abdominal Surgery (21)</option>
-    <option value="8">Thoracic Surgery (24)</option>
-    <option value="6">Head&Neck Surgery (27)</option>
-  </select>
-
-  <hr>
-
-  <!-- Clinical Factors -->
-  <label><input type="checkbox" id="guptarSmoking"> Smoking (4)</label><br>
-  <label><input type="checkbox" id="guptarHct"> Hct<30% (8)</label><br>
-  <label><input type="checkbox" id="guptarBun"> BUN &gt; 30 mg/dL (7)</label><br>
-  <label><input type="checkbox" id="guptarDependent"> Dependent Functional Status (10)</label><br>
-  <label><input type="checkbox" id="guptarWeightLoss"> Weight loss>305 (7)</label><br>
-  <label><input type="checkbox" id="guptarCopd"> COPD (7)</label>
-
-  <hr>
-
-  <button onclick="calculateGuptar()">Calculate</button>
-
-  <div id="guptarResult" style="margin-top:15px; font-weight:bold;"></div>
-
-  <br>
-  <button class="backBtn">Back</button>
-
-</div>
+    <label>Surgery Type:</label>
+    <select id="guptarSurgery">
+      <option value="0">Other Surgery</option>
+      <option value="5">Vascular Surgery (15)</option>
+      <option value="8">Neurosurgery (18)</option>
+      <option value="8">Upper Abdominal Surgery (21)</option>
+      <option 
 
    <!-- RENAL -->
   <div id="page-renal" class="page">
@@ -415,6 +391,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
