@@ -209,6 +209,53 @@ if (ariscatBtn) {
   });
 }
 
+function calculateArrozullah() {
+  let score = 0;
+
+  const surgery = document.getElementById("surgery-type").value;
+  const emergency = document.getElementById("emergency").checked;
+  const albumin = document.getElementById("albumin").checked;
+  const bun = document.getElementById("bun").checked;
+  const dependent = document.getElementById("dependent").checked;
+  const copd = document.getElementById("copd").checked;
+  const age = parseInt(document.getElementById("age").value);
+
+  // Surgery type
+  score += parseInt(surgery);
+
+  if (emergency) score += 11;
+  if (albumin) score += 8;
+  if (bun) score += 8;
+  if (dependent) score += 7;
+  if (copd) score += 6;
+
+  if (age >= 80) score += 13;
+  else if (age >= 70) score += 9;
+  else if (age >= 60) score += 4;
+
+  let riskClass = "";
+  let riskPercent = "";
+
+  if (score <= 10) {
+    riskClass = "Class 1";
+    riskPercent = "0.5%";
+  } else if (score <= 19) {
+    riskClass = "Class 2";
+    riskPercent = "1.8%";
+  } else if (score <= 27) {
+    riskClass = "Class 3";
+    riskPercent = "4.2%";
+  } else if (score <= 40) {
+    riskClass = "Class 4";
+    riskPercent = "10%";
+  } else {
+    riskClass = "Class 5";
+    riskPercent = "26%";
+  }
+
+  document.getElementById("arroz-result").innerHTML =
+    `Score: ${score} <br> ${riskClass} – Risk: ${riskPercent}`;
+}
 
 
 
