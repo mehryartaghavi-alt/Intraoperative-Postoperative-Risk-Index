@@ -140,9 +140,159 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/* ================= EAGLE ================= */
 
+const calcEagle = document.getElementById("calcEagle");
 
+if (calcEagle) {
+  calcEagle.addEventListener("click", () => {
 
+    let score = 0;
+
+    document
+      .querySelectorAll("#page-eagle input[type=checkbox]:checked")
+      .forEach(cb => score += Number(cb.dataset.score));
+
+    let risk = "";
+
+    if (score <= 1) risk = "Low risk";
+    else if (score === 2) risk = "Moderate risk";
+    else risk = "High risk";
+
+    document.getElementById("eagleResult").innerHTML =
+      `<strong>Total Score:</strong> ${score}<br>
+       <strong>Risk Level:</strong> ${risk}`;
+  });
+}
+
+/* ================= ARISCAT ================= */
+
+const calcAriscat = document.getElementById("calcAriscat");
+
+if (calcAriscat) {
+  calcAriscat.addEventListener("click", () => {
+
+    let score = 0;
+
+    score += Number(document.getElementById("ariscatAge").value);
+    score += Number(document.getElementById("ariscatSpO2").value);
+    score += Number(document.getElementById("ariscatSurgery").value);
+    score += Number(document.getElementById("ariscatDuration").value);
+
+    if (document.getElementById("ariscatInfection").checked) score += 17;
+    if (document.getElementById("ariscatAnemia").checked) score += 11;
+
+    let risk = "";
+    let percent = "";
+
+    if (score < 26) {
+      risk = "Low Risk";
+      percent = "~1.6% PPC";
+    } else if (score < 45) {
+      risk = "Intermediate Risk";
+      percent = "~13% PPC";
+    } else {
+      risk = "High Risk";
+      percent = "~42% PPC";
+    }
+
+    document.getElementById("ariscatResult").innerHTML =
+      `<strong>Total Score:</strong> ${score}<br>
+       <strong>${risk}</strong><br>${percent}`;
+  });
+}
+
+/* ================= ARROZULLAH ================= */
+
+function calculateArrozullah() {
+
+  let score = 0;
+
+  const surgery = Number(document.getElementById("arrozSurgery").value);
+  const emergency = document.getElementById("arrozEmergency").checked;
+  const albumin = document.getElementById("arrozAlbumin").checked;
+  const bun = document.getElementById("arrozBun").checked;
+  const dependent = document.getElementById("arrozDependent").checked;
+  const copd = document.getElementById("arrozCopd").checked;
+  const age = Number(document.getElementById("arrozAge").value);
+
+  score += surgery;
+
+  if (emergency) score += 11;
+  if (albumin) score += 8;
+  if (bun) score += 8;
+  if (dependent) score += 7;
+  if (copd) score += 6;
+
+  if (age >= 80) score += 13;
+  else if (age >= 70) score += 9;
+  else if (age >= 60) score += 4;
+
+  let riskClass = "";
+  let riskPercent = "";
+
+  if (score <= 10) {
+    riskClass = "Class 1"; riskPercent = "0.5%";
+  } else if (score <= 19) {
+    riskClass = "Class 2"; riskPercent = "1.8%";
+  } else if (score <= 27) {
+    riskClass = "Class 3"; riskPercent = "4.2%";
+  } else if (score <= 40) {
+    riskClass = "Class 4"; riskPercent = "10%";
+  } else {
+    riskClass = "Class 5"; riskPercent = "26%";
+  }
+
+  document.getElementById("arrozResult").innerHTML =
+    `Score: ${score}<br>${riskClass} – Risk: ${riskPercent}`;
+}
+
+/* ================= GUPTAR ================= */
+
+function calculateGuptar() {
+
+  let score = 0;
+
+  const surgery = Number(document.getElementById("guptarSurgery").value);
+  const smoking = document.getElementById("guptarSmoking").checked;
+  const hct = document.getElementById("guptarHct").checked;
+  const bun = document.getElementById("guptarBun").checked;
+  const dependent = document.getElementById("guptarDependent").checked;
+  const copd = document.getElementById("guptarCopd").checked;
+  const weightLoss = document.getElementById("guptarWeightLoss").checked;
+  const age = Number(document.getElementById("guptarAge").value);
+
+  score += surgery;
+
+  if (smoking) score += 4;
+  if (hct) score += 8;
+  if (bun) score += 7;
+  if (dependent) score += 10;
+  if (copd) score += 7;
+  if (weightLoss) score += 7;
+
+  if (age >= 80) score += 12;
+  else if (age >= 70) score += 8;
+  else if (age >= 60) score += 4;
+
+  let riskClass = "";
+  let riskPercent = "";
+
+  if (score <= 15) {
+    riskClass = "Class 1"; riskPercent = "0.2%";
+  } else if (score <= 25) {
+    riskClass = "Class 2"; riskPercent = "1.2%";
+  } else if (score <= 40) {
+    riskClass = "Class 3"; riskPercent = "4%";
+  } else if (score <= 55) {
+    riskClass = "Class 4"; riskPercent = "9.2%";
+  } else {
+    riskClass = "Class 5"; riskPercent = "15.3%";
+  }
+
+  document.getElementById("guptarResult").innerHTML =
+    `Score: ${score}<br>${riskClass} – Risk: ${riskPercent}`;
+}
 
 
 
