@@ -552,3 +552,31 @@ function calculateMashour() {
   document.getElementById("mashourResult").innerHTML =
     `Score: ${score}<br>Estimated Stroke Risk: ${riskPercent}`;
 }
+
+function calculateCHA2DS2() {
+  let score = 0;
+
+  if(document.getElementById("afC").checked) score += 1;
+  if(document.getElementById("afH").checked) score += 1;
+  if(document.getElementById("afA75").checked) score += 2;
+  if(document.getElementById("afD").checked) score += 1;
+  if(document.getElementById("afS").checked) score += 2;
+  if(document.getElementById("afV").checked) score += 1;
+  if(document.getElementById("afA65").checked) score += 1;
+  if(document.getElementById("afF").checked) score += 1;
+
+  let risk = "";
+
+  if(score === 0) risk = "Low (~0%)";
+  else if(score === 1) risk = "Low-Moderate (~1.3%)";
+  else if(score === 2) risk = "Moderate (~2.2%)";
+  else if(score === 3) risk = "Moderate-High (~3.2%)";
+  else if(score === 4) risk = "High (~4%)";
+  else if(score === 5) risk = "High (~6.7%)";
+  else if(score === 6) risk = "Very High (~9.8%)";
+  else if(score === 7) risk = "Very High (~9.6%)";
+  else if(score >= 8) risk = "Extremely High (~12%)";
+
+  document.getElementById("cha2ds2Result").innerHTML =
+    `Score: ${score}<br>Estimated Stroke Risk: ${risk}`;
+}
