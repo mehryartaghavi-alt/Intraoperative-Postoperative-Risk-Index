@@ -623,7 +623,7 @@
     <h2>Hepatic Risk Assessment</h2>
 
     <button class="score-btn" data-score="childpugh">Child-Pugh Score </button>
-    <button class="score-btn" data-score="hepa">Postoperative Hepatic Dysfunction Risk Score</button>
+    <button class="score-btn" data-score="meld">MELD Score Calculator</button>
     <button class="backBtn">⬅ Back</button>
   </div>
   <div id="page-childpugh" class="page">
@@ -674,11 +674,37 @@
   <div id="cpResult" style="margin-top:15px; font-weight:bold;"></div>
   <button class="backBtn">Back</button>
 </div>
+
+  <div id="page-meld" class="page">
+  <h2>MELD Score Calculator</h2>
+
+  <label>Bilirubin (mg/dL):
+    <input type="number" id="meldBilirubin" step="0.1" min="0">
+  </label>
+
+  <label>INR:
+    <input type="number" id="meldINR" step="0.01" min="0">
+  </label>
+
+  <label>Creatinine (mg/dL):
+    <input type="number" id="meldCreatinine" step="0.01" min="0">
+  </label>
+
+  <label>Sodium (Na⁺, mmol/L) - optional for MELD-Na:
+    <input type="number" id="meldNa" step="1" min="0">
+  </label>
+
+  <button onclick="calculateMELD()">Calculate MELD</button>
+
+  <div id="meldResult" style="margin-top:15px; font-weight:bold;"></div>
+  <button class="backBtn">Back</button>
+</div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
