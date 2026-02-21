@@ -598,3 +598,35 @@ function calculateChildPugh() {
   document.getElementById("cpResult").innerHTML =
     `<strong>Total Score:</strong> ${totalScore}<br><strong>${riskClass}</strong>`;
 }
+
+function calculateMELD() {
+  let bilirubin = Number(document.getElementById("meldBilirubin").value);
+  let inr = Number(document.getElementById("meldINR").value);
+  let creatinine = Number(document.getElementById("meldCreatinine").value);
+  let sodium = Number(document.getElementById("meldNa").value); // optional
+
+  // جلوگیری از مقادیر صفر یا منفی
+  if(bilirubin <= 0) bilirubin = 1;
+  if(creatinine <= 0) creatinine = 1;
+  if(inr <= 0) inr = 1;
+
+  // محاسبه MELD استاندارد
+  let meld = 3.78 * Math.log(bilirubin) + 11.2 * Math.log(inr) + 9.57 * Math.log(creatinine) + 6.43;
+
+  // MELD-Na (اختیاری)
+  if(!isNaN(sodium) && sodium > 0) {
+    meld = meld - sodium * 0.025 + 0.84 * 1; // ساده‌سازی برای demo
+  }
+
+  meld = Math.round(meld);
+
+  // تفسیر ساده
+  let riskText = "";
+  if(meld < 10) riskText = "Low risk";
+  else if(meld <= 19) riskText = "Moderate risk";
+  else if(meld <= 29) riskText = "High risk";
+  else riskText = "Very high risk";
+
+  document.getElementById("meldResult").innerHTML =
+    `<strong>MELD Score:</strong> ${meld}<br><strong>Risk Level:</strong> ${riskText}`;
+}
