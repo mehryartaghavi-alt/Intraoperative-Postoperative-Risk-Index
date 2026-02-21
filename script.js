@@ -630,3 +630,49 @@ function calculateMELD() {
   document.getElementById("meldResult").innerHTML =
     `<strong>MELD Score:</strong> ${meld}<br><strong>Risk Level:</strong> ${riskText}`;
 }
+
+function calculateHepPostopRisk() {
+  let score = 0;
+
+  // Age
+  const age = Number(document.getElementById("hepAge").value);
+  if (age > 65) score += 2;
+  else if (age > 50) score += 1;
+
+  // ASA
+  const asa = Number(document.getElementById("hepASA").value);
+  score += asa * 2; // I-II=2, III=4, IV-V=6
+
+  // Surgery
+  const surg = Number(document.getElementById("hepSurgery").value);
+  score += surg;
+
+  // Hypotension
+  if (document.getElementById("hepHypotension").checked) score += 3;
+
+  // Creatinine
+  const cr = Number(document.getElementById("hepCreatinine").value);
+  if (cr > 1.5) score += 2;
+
+  // LFT
+  const bilirubin = Number(document.getElementById("hepBilirubin").value);
+  const ast = Number(document.getElementById("hepAST").value);
+  const alt = Number(document.getElementById("hepALT").value);
+
+  if (bilirubin > 2) score += 2;
+  if (ast > 40) score += 1;
+  if (alt > 40) score += 1;
+
+  // Risk interpretation
+  let riskText = "";
+  let riskPercent = 0;
+
+  if (score <= 4) { riskText = "Low"; riskPercent = "~5%"; }
+  else if (score <= 8) { riskText = "Moderate"; riskPercent = "~15%"; }
+  else if (score <= 12) { riskText = "High"; riskPercent = "~30%"; }
+  else { riskText = "Very High"; riskPercent = "~50%"; }
+
+  document.getElementById("hepPostopResult").innerHTML =
+    `<strong>Total Score:</strong> ${score}<br>
+     <strong>Risk Level:</strong> ${riskText} – ${riskPercent}`;
+}
