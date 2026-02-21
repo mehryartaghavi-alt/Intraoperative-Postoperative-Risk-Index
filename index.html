@@ -624,6 +624,7 @@
 
     <button class="score-btn" data-score="childpugh">Child-Pugh Score </button>
     <button class="score-btn" data-score="meld">MELD Score Calculator</button>
+    <button class="score-btn" data-score="hep-postop">Postoperative Hepatic Dysfunction Risk Score</button>
     <button class="backBtn">⬅ Back</button>
   </div>
   <div id="page-childpugh" class="page">
@@ -699,11 +700,59 @@
   <div id="meldResult" style="margin-top:15px; font-weight:bold;"></div>
   <button class="backBtn">Back</button>
 </div>
+  <div id="page-hep-postop" class="page">
+  <h2>Postoperative Hepatic Dysfunction Risk Score</h2>
+
+  <label>Age:
+    <input type="number" id="hepAge" min="18" placeholder="Enter age">
+  </label>
+
+  <label>ASA Class:
+    <select id="hepASA">
+      <option value="1">I–II</option>
+      <option value="2">III</option>
+      <option value="3">IV–V</option>
+    </select>
+  </label>
+
+  <label>Surgery Type:
+    <select id="hepSurgery">
+      <option value="0">Low Risk</option>
+      <option value="3">Intermediate Risk</option>
+      <option value="5">High Risk</option>
+    </select>
+  </label>
+
+  <label><input type="checkbox" id="hepHypotension"> Intra-op Hypotension</label>
+
+  <label>Creatinine (mg/dL):
+    <input type="number" id="hepCreatinine" step="0.01" min="0">
+  </label>
+
+  <label>Bilirubin (mg/dL):
+    <input type="number" id="hepBilirubin" step="0.1" min="0">
+  </label>
+
+  <label>AST (IU/L):
+    <input type="number" id="hepAST" step="1" min="0">
+  </label>
+
+  <label>ALT (IU/L):
+    <input type="number" id="hepALT" step="1" min="0">
+  </label>
+
+  <button onclick="calculateHepPostopRisk()">Calculate Risk</button>
+
+  <div id="hepPostopResult" style="margin-top:15px; font-weight:bold;"></div>
+  <button class="backBtn">Back</button>
+</div>
+  
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
