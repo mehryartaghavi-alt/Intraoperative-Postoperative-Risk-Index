@@ -438,3 +438,49 @@ function calculateSpark() {
     `Score: ${score}<br>${riskLevel} – Estimated AKI Risk: ${riskPercent}`;
 }
 
+function calculateKheterpal() {
+
+  let score = 0;
+
+  const age = Number(document.getElementById("kAge").value);
+
+  const intraperitoneal = document.getElementById("kIntraperitoneal").checked;
+  const aortic = document.getElementById("kAortic").checked;
+  const renal = document.getElementById("kRenal").checked;
+  const diabetes = document.getElementById("kDiabetes").checked;
+  const chf = document.getElementById("kCHF").checked;
+  const ascites = document.getElementById("kAscites").checked;
+  const emergency = document.getElementById("kEmergency").checked;
+
+  if (age > 56) score += 1;
+  if (intraperitoneal) score += 1;
+  if (aortic) score += 2;
+  if (renal) score += 2;
+  if (diabetes) score += 1;
+  if (chf) score += 1;
+  if (ascites) score += 2;
+  if (emergency) score += 1;
+
+  let riskClass = "";
+  let riskPercent = "";
+
+  if (score <= 2) {
+    riskClass = "Class I";
+    riskPercent = "0.2% Dialysis Risk";
+  } else if (score <= 3) {
+    riskClass = "Class II";
+    riskPercent = "0.8% Dialysis Risk";
+  } else if (score <= 5) {
+    riskClass = "Class III";
+    riskPercent = "1.8% Dialysis Risk";
+  } else if (score <= 6) {
+    riskClass = "Class IV";
+    riskPercent = "3.3% Dialysis Risk";
+  } else {
+    riskClass = "Class V";
+    riskPercent = "9% Dialysis Risk";
+  }
+
+  document.getElementById("kResult").innerHTML =
+    `Score: ${score}<br>${riskClass} – Estimated Risk: ${riskPercent}`;
+}
