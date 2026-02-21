@@ -356,7 +356,24 @@
       <option value="5">Vascular Surgery (15)</option>
       <option value="8">Neurosurgery (18)</option>
       <option value="8">Upper Abdominal Surgery (21)</option>
-      <option 
+      <option value="8">Thoracic Surgery (24)</option>
+      <option value="6">Head&Neck Surgery (27)</option>
+    </select>
+ <hr>
+
+    <label><input type="checkbox" id="guptarSmoking"> Smoking (4)</label><br>
+    <label><input type="checkbox" id="guptarHct"> Hct&lt;30% (8)</label><br>
+    <label><input type="checkbox" id="guptarBun"> BUN &gt; 30 mg/dL (7)</label><br>
+    <label><input type="checkbox" id="guptarDependent"> Dependent Functional Status (10)</label><br>
+    <label><input type="checkbox" id="guptarWeightLoss"> Weight loss&gt;305 (7)</label><br>
+    <label><input type="checkbox" id="guptarCopd"> COPD (7)</label>
+
+ <hr>
+  <button onclick="calculateGuptar()">Calculate</button>
+    <div id="guptarResult" class="result-box"></div>
+    <br>
+    <button class="backBtn">Back</button>
+  </div>
 
    <!-- RENAL -->
   <div id="page-renal" class="page">
@@ -391,6 +408,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
