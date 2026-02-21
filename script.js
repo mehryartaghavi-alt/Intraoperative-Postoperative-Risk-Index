@@ -337,5 +337,51 @@ function calculateSprs() {
     `Score: ${score}<br>${riskLevel} – Estimated Risk: ${riskPercent}`;
 }
 
+function calculatePrri() {
+
+  let score = 0;
+
+  const age = Number(document.getElementById("prriAge").value);
+  const surgery = Number(document.getElementById("prriSurgery").value);
+  const ckd = document.getElementById("prriCkd").checked;
+  const diabetes = document.getElementById("prriDiabetes").checked;
+  const hf = document.getElementById("prriHf").checked;
+  const emergency = document.getElementById("prriEmergency").checked;
+  const sepsis = document.getElementById("prriSepsis").checked;
+  const hypotension = document.getElementById("prriHypotension").checked;
+
+  score += surgery;
+
+  if (ckd) score += 10;
+  if (diabetes) score += 6;
+  if (hf) score += 8;
+  if (emergency) score += 8;
+  if (sepsis) score += 10;
+  if (hypotension) score += 6;
+
+  if (age >= 80) score += 10;
+  else if (age >= 70) score += 6;
+  else if (age >= 60) score += 3;
+
+  let riskLevel = "";
+  let riskPercent = "";
+
+  if (score <= 10) {
+    riskLevel = "Low Risk";
+    riskPercent = "<1% AKI";
+  } else if (score <= 20) {
+    riskLevel = "Moderate Risk";
+    riskPercent = "3–5% AKI";
+  } else if (score <= 35) {
+    riskLevel = "High Risk";
+    riskPercent = "10–15% AKI";
+  } else {
+    riskLevel = "Very High Risk";
+    riskPercent = ">20% AKI";
+  }
+
+  document.getElementById("prriResult").innerHTML =
+    `Score: ${score}<br>${riskLevel} – Estimated Risk: ${riskPercent}`;
+}
 
 
