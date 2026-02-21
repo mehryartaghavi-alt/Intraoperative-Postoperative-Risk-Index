@@ -577,7 +577,7 @@
     <h2>Stroke Risk Assessment</h2>
 
     <button class="score-btn" data-score="mashour">Mashour Perioperative Stroke Risk</button>
-    <button class="score-btn" data-score="cha2ds2">CHA2DS2-VAS score</button>
+    <button class="score-btn" data-score="cha2ds2">CHA₂DS₂-VASc Score Calculator</button>
        <button class="backBtn">⬅ Back</button>
   </div>
 <div id="page-mashour" class="page">
@@ -597,6 +597,27 @@
   <br>
   <button class="backBtn">Back</button>
 </div>
+  <div id="page-cha2ds2" class="page">
+
+  <h2>CHA₂DS₂-VASc Score Calculator</h2>
+
+  <label><input type="checkbox" id="afC"> Congestive heart failure</label>
+  <label><input type="checkbox" id="afH"> Hypertension</label>
+  <label><input type="checkbox" id="afA75"> Age ≥ 75</label>
+  <label><input type="checkbox" id="afD"> Diabetes mellitus</label>
+  <label><input type="checkbox" id="afS"> Stroke / TIA / thromboembolism</label>
+  <label><input type="checkbox" id="afV"> Vascular disease</label>
+  <label><input type="checkbox" id="afA65"> Age 65–74</label>
+  <label><input type="checkbox" id="afF"> Female sex</label>
+
+  <button onclick="calculateCHA2DS2()">Calculate</button>
+
+  <div id="cha2ds2Result" style="margin-top:15px; font-weight:bold;"></div>
+
+  <br>
+  <button class="backBtn">Back</button>
+
+</div>
    <!-- HEPATIC -->
   <div id="page-hepatic" class="page">
     <h2>Hepatic Risk Assessment</h2>
@@ -611,6 +632,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
