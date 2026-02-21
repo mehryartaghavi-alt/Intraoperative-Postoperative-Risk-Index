@@ -580,3 +580,21 @@ function calculateCHA2DS2() {
   document.getElementById("cha2ds2Result").innerHTML =
     `Score: ${score}<br>Estimated Stroke Risk: ${risk}`;
 }
+
+function calculateChildPugh() {
+  let bilirubin = Number(document.getElementById("cpBilirubin").value);
+  let albumin = Number(document.getElementById("cpAlbumin").value);
+  let inr = Number(document.getElementById("cpINR").value);
+  let ascites = Number(document.getElementById("cpAscites").value);
+  let enceph = Number(document.getElementById("cpEncephalopathy").value);
+
+  let totalScore = bilirubin + albumin + inr + ascites + enceph;
+
+  let riskClass = "";
+  if(totalScore <= 6) riskClass = "Class A – Low risk";
+  else if(totalScore <= 9) riskClass = "Class B – Moderate risk";
+  else riskClass = "Class C – High risk";
+
+  document.getElementById("cpResult").innerHTML =
+    `<strong>Total Score:</strong> ${totalScore}<br><strong>${riskClass}</strong>`;
+}
