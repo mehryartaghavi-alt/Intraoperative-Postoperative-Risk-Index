@@ -384,4 +384,57 @@ function calculatePrri() {
     `Score: ${score}<br>${riskLevel} – Estimated Risk: ${riskPercent}`;
 }
 
+function calculateSpark() {
+
+  let score = 0;
+
+  const age = Number(document.getElementById("sparkAge").value);
+  const egfr = Number(document.getElementById("sparkEgfr").value);
+  const albuminuria = document.getElementById("sparkAlbuminuria").checked;
+  const anemia = document.getElementById("sparkAnemia").checked;
+  const diabetes = document.getElementById("sparkDiabetes").checked;
+  const raas = document.getElementById("sparkRaas").checked;
+  const emergency = document.getElementById("sparkEmergency").checked;
+  const hypoalbumin = document.getElementById("sparkHypoalbumin").checked;
+  const duration = Number(document.getElementById("sparkDuration").value);
+
+  // Age
+  if (age >= 80) score += 10;
+  else if (age >= 70) score += 7;
+  else if (age >= 60) score += 4;
+
+  // eGFR
+  if (egfr < 30) score += 15;
+  else if (egfr < 45) score += 10;
+  else if (egfr < 60) score += 5;
+
+  if (albuminuria) score += 8;
+  if (anemia) score += 6;
+  if (diabetes) score += 4;
+  if (raas) score += 4;
+  if (emergency) score += 8;
+  if (hypoalbumin) score += 8;
+
+  score += duration;
+
+  let riskLevel = "";
+  let riskPercent = "";
+
+  if (score <= 10) {
+    riskLevel = "Low Risk";
+    riskPercent = "<1% AKI";
+  } else if (score <= 20) {
+    riskLevel = "Moderate Risk";
+    riskPercent = "3–5% AKI";
+  } else if (score <= 35) {
+    riskLevel = "High Risk";
+    riskPercent = "10–20% AKI";
+  } else {
+    riskLevel = "Very High Risk";
+    riskPercent = ">30% AKI";
+  }
+
+  document.getElementById("sparkResult").innerHTML =
+    `Score: ${score}<br>${riskLevel} – Estimated AKI Risk: ${riskPercent}`;
+}
 
