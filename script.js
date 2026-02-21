@@ -531,3 +531,24 @@ function calculateCleveland() {
   document.getElementById("clevResult").innerHTML =
     `Score: ${score}<br>${riskClass} – Estimated Dialysis Risk: ${riskPercent}`;
 }
+
+function calculateMashour() {
+  let score = 0;
+
+  if(document.getElementById("strokeAge").checked) score += 1;
+  if(document.getElementById("strokePrev").checked) score += 2;
+  if(document.getElementById("strokeCarotid").checked) score += 1;
+  if(document.getElementById("strokeAF").checked) score += 1;
+  if(document.getElementById("strokeHTN").checked) score += 1;
+  if(document.getElementById("strokeSurgery").checked) score += 1;
+
+  let riskPercent = "";
+
+  if(score <= 1) riskPercent = "~0.5%";
+  else if(score <= 3) riskPercent = "~1.5%";
+  else if(score <= 5) riskPercent = "~3%";
+  else riskPercent = "~5%";
+
+  document.getElementById("mashourResult").innerHTML =
+    `Score: ${score}<br>Estimated Stroke Risk: ${riskPercent}`;
+}
