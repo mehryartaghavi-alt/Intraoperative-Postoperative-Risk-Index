@@ -415,6 +415,7 @@
 
     <button class="score-btn" data-score="prri">Postoperative Renal Risk Index</button>
       <button class="score-btn" data-score="spark">Postoperative AKI Risk (SPARK)</button>
+    <button class="score-btn" data-score="kheterpal">Kheterpal AKI Risk Index</button>
     <button class="score-btn" data-score="mehta">AKI Risk Index (Mehta)</button>
     <button class="score-btn" data-score="kdigo">AKI Risk Criteria (KDIGO)</button>
     <button class="backBtn">⬅ Back</button>
@@ -496,6 +497,46 @@
   <button class="backBtn">Back</button>
 
 </div>
+  <div id="page-kheterpal" class="page">
+
+  <h2>Kheterpal AKI Risk Index</h2>
+
+  <label>Age:</label>
+  <input type="number" id="kAge" min="18" placeholder="Enter age">
+
+  <hr>
+
+  <label><input type="checkbox" id="kIntraperitoneal">
+  Intraperitoneal / Intrathoracic Surgery</label><br>
+
+  <label><input type="checkbox" id="kAortic">
+  Suprarenal Aortic Clamp</label><br>
+
+  <label><input type="checkbox" id="kRenal">
+  Pre-existing Renal Insufficiency</label><br>
+
+  <label><input type="checkbox" id="kDiabetes">
+  Diabetes Mellitus</label><br>
+
+  <label><input type="checkbox" id="kCHF">
+  Congestive Heart Failure</label><br>
+
+  <label><input type="checkbox" id="kAscites">
+  Ascites</label><br>
+
+  <label><input type="checkbox" id="kEmergency">
+  Emergency Surgery</label>
+
+  <hr>
+
+  <button onclick="calculateKheterpal()">Calculate</button>
+
+  <div id="kResult" style="margin-top:15px; font-weight:bold;"></div>
+
+  <br>
+  <button class="backBtn">Back</button>
+
+</div>
    <!-- CEREBRAL -->
   <div id="page-cerebral" class="page">
     <h2>Stroke Risk Assessment</h2>
@@ -519,6 +560,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
