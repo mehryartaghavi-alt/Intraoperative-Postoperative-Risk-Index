@@ -484,3 +484,50 @@ function calculateKheterpal() {
   document.getElementById("kResult").innerHTML =
     `Score: ${score}<br>${riskClass} – Estimated Risk: ${riskPercent}`;
 }
+
+function calculateCleveland() {
+
+  let score = 0;
+
+  const sex = Number(document.getElementById("clevSex").value);
+  const creatinine = Number(document.getElementById("clevCr").value);
+
+  const chf = document.getElementById("clevCHF").checked;
+  const lowEF = document.getElementById("clevLowEF").checked;
+  const copd = document.getElementById("clevCOPD").checked;
+  const dm = document.getElementById("clevDM").checked;
+  const redo = document.getElementById("clevRedo").checked;
+  const emergency = document.getElementById("clevEmergency").checked;
+  const iabp = document.getElementById("clevIABP").checked;
+
+  if (sex === 1) score += 1;
+  if (creatinine > 2) score += 5;
+
+  if (chf) score += 2;
+  if (lowEF) score += 2;
+  if (copd) score += 1;
+  if (dm) score += 1;
+  if (redo) score += 1;
+  if (emergency) score += 2;
+  if (iabp) score += 3;
+
+  let riskClass = "";
+  let riskPercent = "";
+
+  if (score <= 2) {
+    riskClass = "Class I";
+    riskPercent = "0.4% Dialysis Risk";
+  } else if (score <= 5) {
+    riskClass = "Class II";
+    riskPercent = "1–3%";
+  } else if (score <= 8) {
+    riskClass = "Class III";
+    riskPercent = "5–15%";
+  } else {
+    riskClass = "Class IV";
+    riskPercent = ">20%";
+  }
+
+  document.getElementById("clevResult").innerHTML =
+    `Score: ${score}<br>${riskClass} – Estimated Dialysis Risk: ${riskPercent}`;
+}
