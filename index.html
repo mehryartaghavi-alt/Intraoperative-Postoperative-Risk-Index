@@ -416,7 +416,7 @@
     <button class="score-btn" data-score="prri">Postoperative Renal Risk Index</button>
       <button class="score-btn" data-score="spark">Postoperative AKI Risk (SPARK)</button>
     <button class="score-btn" data-score="kheterpal">Kheterpal AKI Risk Index</button>
-    <button class="score-btn" data-score="mehta">AKI Risk Index (Mehta)</button>
+    <button class="score-btn" data-score="cleveland">Cleveland Clinic AKI Risk Score</button>
     <button class="score-btn" data-score="kdigo">AKI Risk Criteria (KDIGO)</button>
     <button class="backBtn">⬅ Back</button>
   </div>
@@ -537,6 +537,41 @@
   <button class="backBtn">Back</button>
 
 </div>
+  <div id="page-cleveland" class="page">
+
+  <h2>Cleveland Clinic AKI Risk Score</h2>
+
+  <label>Sex:</label>
+  <select id="clevSex">
+    <option value="0">Male</option>
+    <option value="1">Female</option>
+  </select>
+
+  <hr>
+
+  <label>Preoperative Creatinine (mg/dL):</label>
+  <input type="number" step="0.1" id="clevCr" placeholder="Enter creatinine">
+
+  <hr>
+
+  <label><input type="checkbox" id="clevCHF"> CHF</label><br>
+  <label><input type="checkbox" id="clevLowEF"> LVEF &lt; 35%</label><br>
+  <label><input type="checkbox" id="clevCOPD"> COPD</label><br>
+  <label><input type="checkbox" id="clevDM"> Insulin-treated DM</label><br>
+  <label><input type="checkbox" id="clevRedo"> Previous Cardiac Surgery</label><br>
+  <label><input type="checkbox" id="clevEmergency"> Emergency Surgery</label><br>
+  <label><input type="checkbox" id="clevIABP"> Preop IABP</label>
+
+  <hr>
+
+  <button onclick="calculateCleveland()">Calculate</button>
+
+  <div id="clevResult" style="margin-top:15px; font-weight:bold;"></div>
+
+  <br>
+  <button class="backBtn">Back</button>
+
+</div>
    <!-- CEREBRAL -->
   <div id="page-cerebral" class="page">
     <h2>Stroke Risk Assessment</h2>
@@ -560,6 +595,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
