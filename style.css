@@ -81,13 +81,14 @@ button:hover {
 
 .disclaimer {
   margin-top: 16px;
-  font-size: 0.85rem;
+  font-size: 1rem;
   line-height: 1.4;
   color: #444;
-  background: #eef7f2;
+  background: #afeeee;
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
