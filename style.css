@@ -21,7 +21,7 @@ body {
 }
 h1, h2 {
   text-align: center;
-  color: #004d40;
+  color: #DCD1BF;
 }
 
 .subtitle {
@@ -88,6 +88,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
