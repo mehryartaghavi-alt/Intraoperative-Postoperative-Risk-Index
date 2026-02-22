@@ -46,7 +46,7 @@ button {
   margin-top: 20px;
   width: 100%;
   padding: 12px;
-  background: #FFA500;
+  background: #48d1cc;
   color: white;
   border: none;
   font-size: 16px;
@@ -88,6 +88,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
