@@ -9,7 +9,7 @@ body {
   max-width: 420px;
   margin: 0 auto;
   padding: 20px 22px;
-  background: #DCD1BF; /* pistachio light */
+  background: #808080; /* pistachio light */
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
@@ -17,11 +17,11 @@ body {
   text-align: center;
   font-size: 20px;
   margin-bottom: 6px;
-  color: #DCD1BF;
+  color: #808080;
 }
 h1, h2 {
   text-align: center;
-  color: #DCD1BF;
+  color: #808080;
 }
 
 .subtitle {
@@ -88,6 +88,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
