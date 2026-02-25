@@ -60,6 +60,7 @@ button:hover {
   width: 100%;
   overflow-x: hidden;
 }
+.page { display: none; }
 .page.active { display: block; }
 
 .check-item {
@@ -113,6 +114,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
