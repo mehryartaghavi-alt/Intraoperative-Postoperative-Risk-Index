@@ -56,27 +56,34 @@ button {
 button:hover {
   background: #00695c;
 }
-.page { display: none; }
+.page {
+  width: 100%;
+  overflow-x: hidden;
+}
 .page.active { display: block; }
 
 .check-item {
   display: flex;
-  align-items: center;
-  gap: 14px;          /* فاصله متن و چک باکس */
+  align-items: flex-start;
+  gap: 14px;
   margin: 18px 0;
   font-size: 20px;
-  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* بزرگ شدن checkbox */
+/* checkbox بزرگ */
 .check-item input[type="checkbox"] {
-  transform: scale(1.6);
-  cursor: pointer;
+  transform: scale(1.5);
+  margin-top: 4px;
+  flex-shrink: 0;   /* مهم */
 }
 
-/* جلوگیری از به‌هم‌ریختن متن */
+/* متن */
 .check-item span {
   flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .result-table {
   width: 100%;
@@ -106,6 +113,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
