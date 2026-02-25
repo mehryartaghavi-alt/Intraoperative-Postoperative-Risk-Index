@@ -56,11 +56,8 @@ button {
 button:hover {
   background: #00695c;
 }
-.page {
-  width: 100%;
-  overflow-x: hidden;
-}
-
+.page { display: none; }
+.page.active { display: block; }
 .check-item {
   display: flex;
   align-items: flex-start;
@@ -112,6 +109,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
