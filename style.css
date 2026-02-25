@@ -59,7 +59,25 @@ button:hover {
 .page { display: none; }
 .page.active { display: block; }
 
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;          /* فاصله متن و چک باکس */
+  margin: 18px 0;
+  font-size: 20px;
+  cursor: pointer;
+}
 
+/* بزرگ شدن checkbox */
+.check-item input[type="checkbox"] {
+  transform: scale(1.6);
+  cursor: pointer;
+}
+
+/* جلوگیری از به‌هم‌ریختن متن */
+.check-item span {
+  flex: 1;
+}
 .result-table {
   width: 100%;
   max-width: 100%;
@@ -88,6 +106,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
