@@ -37,7 +37,7 @@ label {
 }
 
 input, select {
-  width: 100%;
+  width: 95%;
   padding: 12px;
   margin-top: 4px;
 }
@@ -58,30 +58,8 @@ button:hover {
 }
 .page { display: none; }
 .page.active { display: block; }
-.check-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  margin: 18px 0;
-  font-size: 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
 
-/* checkbox بزرگ */
-.check-item input[type="checkbox"] {
-  transform: scale(1.5);
-  margin-top: 4px;
-  flex-shrink: 0;   /* مهم */
-}
 
-/* متن */
-.check-item span {
-  flex: 1;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  min-width: 0;
-}
 .result-table {
   width: 100%;
   max-width: 100%;
@@ -110,6 +88,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
