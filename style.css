@@ -36,9 +36,9 @@ label {
   margin-top: 12px;
 }
 
-input, select {
+input:not([type="checkbox"]), select {
   width: 95%;
-  padding: 12px;
+  padding: 8px;
   margin-top: 4px;
 }
 
@@ -88,6 +88,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
