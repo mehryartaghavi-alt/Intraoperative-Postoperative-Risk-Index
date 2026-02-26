@@ -80,6 +80,7 @@ button:hover {
   flex: 1;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  min-width: 0;
 }
 .result-table {
   width: 100%;
@@ -109,6 +110,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
