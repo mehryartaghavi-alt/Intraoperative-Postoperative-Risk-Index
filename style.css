@@ -37,7 +37,7 @@ label {
 }
 
 input, select {
-  width: 50%;
+  width: 100%;
   padding: 12px;
   margin-top: 4px;
 }
@@ -110,6 +110,7 @@ button:hover {
   padding: 12px;
   border-radius: 10px;
 }
+
 
 
 
