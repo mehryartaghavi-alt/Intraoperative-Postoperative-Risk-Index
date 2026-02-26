@@ -66,7 +66,7 @@
 
     <button id="calcRCRI">Calculate RCRI</button>
     <div id="rcriResult" class="result-box"></div>
- <button class="backBtn">⬅ Back</button>
+ <button class="backBtn" data-target="page-cardiac">⬅ Back</button>
      </div>
 
   <!-- GOLDMAN -->
@@ -100,7 +100,7 @@
   <button id="calcGoldman">Calculate Goldman Score</button>
 
   <div id="goldmanResult" class="result-box"></div>
- <button class="backBtn">⬅ Back</button>
+ <button class="backBtn" data-target="page-cardiac">⬅ Back</button>
   </div>
 
     
@@ -150,7 +150,7 @@
   <button id="calcDetsky">Calculate Detsky Score</button>
 
   <div id="detskyResult" class="result-box"></div>
-   <button class="backBtn">⬅ Back</button>
+   <button class="backBtn" data-target="page-cardiac">⬅ Back</button>
   </div>
   
 
@@ -367,7 +367,7 @@
   <div id="arrozResult" style="margin-top:15px; font-weight:bold;"></div>
 
   <br>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-pulmonary>⬅Back</button>
 
 </div>
 
@@ -403,7 +403,7 @@
   <button onclick="calculateGuptar()">Calculate</button>
     <div id="guptarResult" class="result-box"></div>
     <br>
-    <button class="backBtn">⬅Back</button>
+    <button class="backBtn" data-target="page-pulmonary>⬅Back</button>
   </div>
   
 <div id="page-sprs" class="page">
@@ -437,7 +437,7 @@
   <div id="sprsResult" style="margin-top:15px; font-weight:bold;"></div>
 
   <br>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-pulmonary>⬅Back</button>
 
 </div>
    <!-- RENAL -->
@@ -492,7 +492,7 @@
   <div id="prriResult" style="margin-top:15px; font-weight:bold;"></div>
 
   <br>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-renal>⬅Back</button>
 
 </div>
   <div id="page-spark" class="page">
@@ -532,7 +532,7 @@
   <div id="sparkResult" style="margin-top:15px; font-weight:bold;"></div>
 
   <br>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-renal>⬅Back</button>
 
 </div>
   <div id="page-kheterpal" class="page">
@@ -572,7 +572,7 @@
   <div id="kResult" style="margin-top:15px; font-weight:bold;"></div>
 
   <br>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-renal>⬅Back</button>
 
 </div>
   <div id="page-cleveland" class="page">
@@ -607,7 +607,7 @@
   <div id="clevResult" style="margin-top:15px; font-weight:bold;"></div>
 
   <br>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-renal>⬅Back</button>
 
 </div>
   <div id="page-egfr" class="page">
@@ -635,7 +635,7 @@ Calculate eGFR
 
 <div id="egfr-result" class="result-box"></div>
 
-<button class="backBtn">⬅ Back</button>
+<button class="backBtn" data-target="page-renal>⬅ Back</button>
 
 </div>
    <!-- CEREBRAL -->
@@ -668,7 +668,7 @@ Calculate eGFR
   <div id="mashourResult" style="margin-top:15px; font-weight:bold;"></div>
 
   <br>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-cerebral>⬅Back</button>
 </div>
   <div id="page-cha2ds2" class="page">
 
@@ -688,7 +688,7 @@ Calculate eGFR
   <div id="cha2ds2Result" style="margin-top:15px; font-weight:bold;"></div>
 
   <br>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-cerebral>⬅Back</button>
 
 </div>
    <!-- HEPATIC -->
@@ -753,7 +753,7 @@ Calculate eGFR
   <button onclick="calculateChildPugh()">Calculate</button>
 
   <div id="cpResult" style="margin-top:15px; font-weight:bold;"></div>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-hepatic>⬅Back</button>
 </div>
 
   <div id="page-meld" class="page">
@@ -778,7 +778,7 @@ Calculate eGFR
   <button onclick="calculateMELD()">Calculate MELD</button>
 
   <div id="meldResult" style="margin-top:15px; font-weight:bold;"></div>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-hepatic>⬅Back</button>
 </div>
   <div id="page-hep-postop" class="page">
   <h2>Postoperative Hepatic Dysfunction Risk Score</h2>
@@ -824,7 +824,7 @@ Calculate eGFR
   <button onclick="calculateHepPostopRisk()">Calculate Risk</button>
 
   <div id="hepPostopResult" style="margin-top:15px; font-weight:bold;"></div>
-  <button class="backBtn">⬅Back</button>
+  <button class="backBtn" data-target="page-hepatic>⬅Back</button>
 </div>
   
 </div>
@@ -837,6 +837,7 @@ if ('serviceWorker' in navigator) {
 
 </body>
 </html>
+
 
 
 
