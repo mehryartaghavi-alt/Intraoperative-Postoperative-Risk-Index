@@ -677,18 +677,27 @@ function calculateHepPostopRisk() {
      <strong>Risk Level:</strong> ${riskText} – ${riskPercent}`;
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+
+const egfrBtn =
+document.getElementById("calcEGFR");
+
+if (egfrBtn){
+egfrBtn.addEventListener("click", calculateEGFR);
+}
+
+});
+
 function calculateEGFR() {
 
-let age = parseFloat(
-document.getElementById("egfr-age").value
-);
+let age =
+parseFloat(document.getElementById("egfr-age").value);
 
 let sex =
 document.getElementById("egfr-sex").value;
 
-let scr = parseFloat(
-document.getElementById("egfr-creatinine").value
-);
+let scr =
+parseFloat(document.getElementById("egfr-creatinine").value);
 
 if (!age || !scr) {
 document.getElementById("egfr-result")
@@ -696,9 +705,9 @@ document.getElementById("egfr-result")
 return;
 }
 
-let k = (sex === "female") ? 0.7 : 0.9;
-let alpha = (sex === "female") ? -0.241 : -0.302;
-let sexFactor = (sex === "female") ? 1.012 : 1;
+let k = sex === "female" ? 0.7 : 0.9;
+let alpha = sex === "female" ? -0.241 : -0.302;
+let sexFactor = sex === "female" ? 1.012 : 1;
 
 let egfr =
 142 *
@@ -707,25 +716,16 @@ Math.pow(Math.max(scr/k,1), -1.200) *
 Math.pow(0.9938, age) *
 sexFactor;
 
-egfr = egfr.toFixed(1);
+let stage="";
 
-let stage = "";
+if (egfr>=90) stage="G1 Normal";
+else if (egfr>=60) stage="G2 Mild";
+else if (egfr>=45) stage="G3a";
+else if (egfr>=30) stage="G3b";
+else if (egfr>=15) stage="G4 Severe";
+else stage="G5 Failure";
 
-if (egfr >= 90)
-stage = "G1 – Normal or High";
-else if (egfr >= 60)
-stage = "G2 – Mild decrease";
-else if (egfr >= 45)
-stage = "G3a – Mild to Moderate";
-else if (egfr >= 30)
-stage = "G3b – Moderate to Severe";
-else if (egfr >= 15)
-stage = "G4 – Severe decrease";
-else
-stage = "G5 – Kidney Failure";
-
-document.getElementById("egfr-result")
-.innerHTML =
-`eGFR : <b>${egfr}</b> ml/min/1.73m² <br>
-Stage : <b>${stage}</b>`;
+document.getElementById("egfr-result").innerHTML =
+`eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
+Stage: <b>${stage}</b>`;
 }
