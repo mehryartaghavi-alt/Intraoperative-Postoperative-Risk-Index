@@ -88,34 +88,43 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================= DETSKY ================= */
 
   const calcDetsky = document.getElementById("calcDetsky");
-  if (calcDetsky) {
-    calcDetsky.addEventListener("click", () => {
-      let score = 0;
 
-      document
-        .querySelectorAll("#page-detsky input[type=checkbox]:checked")
-        .forEach(cb => score += Number(cb.dataset.score));
+if (calcDetsky) {
+  calcDetsky.addEventListener("click", () => {
 
-      let riskClass = "";
-      let riskText = "";
-      if (score <= 5) {
-        riskClass = "Class I"; 
-        riskText = "6% cardiac risk";
-      }
-      else if (score <= 12) 
-        { riskClass = "Class II"; 
-        riskText = "7% cardiac risk";
-      }
-         else if (score <= 25) 
-        { riskClass = "Class III"; 
-        riskText = "20% cardiac risk";
-      }
-      else { riskClass = "Class IV"; 
-        riskText = "~100% cardiac risk";
-      }
-      document.getElementById("detskyResult").innerHTML =
-  `<strong>Total Score:</strong> ${score}<br>
-   <strong>Risk Level:</strong> ${riskClass} (${riskText})`;
+    let score = 0;
+
+    document
+      .querySelectorAll("#page-detsky input[type=checkbox]:checked")
+      .forEach(cb => {
+        score += Number(cb.dataset.score);
+      });
+
+    let riskClass = "";
+    let riskText = "";
+
+    if (score <= 5) {
+      riskClass = "Class I";
+      riskText = "6% cardiac risk";
+    } 
+    else if (score <= 12) {
+      riskClass = "Class II";
+      riskText = "7% cardiac risk";
+    } 
+    else if (score <= 25) {
+      riskClass = "Class III";
+      riskText = "20% cardiac risk";
+    } 
+    else {
+      riskClass = "Class IV";
+      riskText = "~100% cardiac risk";
+    }
+
+    document.getElementById("detskyResult").innerHTML =
+      `<strong>Total Score:</strong> ${score}<br>
+       <strong>Risk Level:</strong> ${riskClass} (${riskText})`;
+  });
+}
 
   /* ================= GUPTA MICA ================= */
 
@@ -739,6 +748,7 @@ document.getElementById("egfr-result").innerHTML =
 `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
 Stage: <b>${stage}</b>`;
 }
+
 
 
 
