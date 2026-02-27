@@ -97,10 +97,21 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach(cb => score += Number(cb.dataset.score));
 
       let risk = "";
-      if (score <= 15) risk = "Low risk";
-      else if (score <= 30) risk = "Intermediate risk";
-      else risk = "High risk";
-
+      if (score <= 5) {
+        riskClass = "Class I"; 
+        riskText = "6% cardiac risk";
+      }
+      else if (score <= 12) 
+        { riskClass = "Class II"; 
+        riskText = "7% cardiac risk";
+      }
+         else if (score <= 25) 
+        { riskClass = "Class III"; 
+        riskText = "20% cardiac risk";
+      }
+      else risk = { riskClass = "Class IV"; 
+        riskText = "~100% cardiac risk";
+      }
       document.getElementById("detskyResult").innerHTML =
         `<strong>Total Score:</strong> ${score}<br>
          <strong>Risk Level:</strong> ${risk}`;
@@ -729,3 +740,4 @@ document.getElementById("egfr-result").innerHTML =
 `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
 Stage: <b>${stage}</b>`;
 }
+
