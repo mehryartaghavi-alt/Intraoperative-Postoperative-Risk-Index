@@ -96,7 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .querySelectorAll("#page-detsky input[type=checkbox]:checked")
         .forEach(cb => score += Number(cb.dataset.score));
 
-      let risk = "";
+      let riskClass = "";
+      let riskText = "";
       if (score <= 5) {
         riskClass = "Class I"; 
         riskText = "6% cardiac risk";
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { riskClass = "Class III"; 
         riskText = "20% cardiac risk";
       }
-      else risk = { riskClass = "Class IV"; 
+      else { riskClass = "Class IV"; 
         riskText = "~100% cardiac risk";
       }
       document.getElementById("detskyResult").innerHTML =
@@ -740,4 +741,5 @@ document.getElementById("egfr-result").innerHTML =
 `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
 Stage: <b>${stage}</b>`;
 }
+
 
