@@ -200,7 +200,7 @@ if (calcAriscat) {
 
     if (document.getElementById("ariscatInfection").checked) score += 17;
     if (document.getElementById("ariscatAnemia").checked) score += 11;
-
+    if (document.getElementById("ariscatEmergency").checked) score += 8;
     let risk = "";
     let percent = "";
 
@@ -748,6 +748,7 @@ document.getElementById("egfr-result").innerHTML =
 `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
 Stage: <b>${stage}</b>`;
 }
+
 
 
 
