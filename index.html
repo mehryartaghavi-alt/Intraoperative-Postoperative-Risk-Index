@@ -59,6 +59,7 @@
     <h2>RCRI – Cardiac Risk Index</h2>
 
     <label><input type="checkbox" data-score="1"> History of CVA or TIA</label>
+     <label><input type="checkbox" data-score="1"> History of CHF</label>
     <label><input type="checkbox" data-score="1"> Insulin-dependent diabetes</label>
     <label><input type="checkbox" data-score="1"> Creatinine &gt; 2 mg/dL</label>
     <label><input type="checkbox" data-score="1"> Coronary artery disease</label>
@@ -67,6 +68,8 @@
     <button id="calcRCRI">Calculate RCRI</button>
     <div id="rcriResult" class="result-box"></div>
  <button class="backBtn" data-target="page-cardiac">⬅ Back</button>
+    <div class="disclaimer">
+<strong>High Risk Surgery:</strong>Intraperitoneal, Intrathoracic & Suprainguinal vascular surgeries.
      </div>
 
   <!-- GOLDMAN -->
@@ -837,6 +840,7 @@ if ('serviceWorker' in navigator) {
 
 </body>
 </html>
+
 
 
 
