@@ -114,10 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
         riskText = "~100% cardiac risk";
       }
       document.getElementById("detskyResult").innerHTML =
-        `<strong>Total Score:</strong> ${score}<br>
-         <strong>Risk Level:</strong> ${risk}`;
-    });
-  }
+  `<strong>Total Score:</strong> ${score}<br>
+   <strong>Risk Level:</strong> ${riskClass} (${riskText})`;
 
   /* ================= GUPTA MICA ================= */
 
@@ -741,6 +739,7 @@ document.getElementById("egfr-result").innerHTML =
 `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
 Stage: <b>${stage}</b>`;
 }
+
 
 
 
