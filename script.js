@@ -174,9 +174,9 @@ if (calcEagle) {
 
     let risk = "";
 
-    if (score = 0) risk = "Low risk, 2%";
-    else if (score <= 2) risk = "Moderate risk, 10%";
-    else risk = "High risk, 30%";
+    if (score === 0) risk = "Low risk-2%";
+    else if (score <= 2) risk = "Moderate risk-10%";
+    else risk = "High risk-30%";
 
     document.getElementById("eagleResult").innerHTML =
       `<strong>Total Score:</strong> ${score}<br>
@@ -748,6 +748,7 @@ document.getElementById("egfr-result").innerHTML =
 `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
 Stage: <b>${stage}</b>`;
 }
+
 
 
 
