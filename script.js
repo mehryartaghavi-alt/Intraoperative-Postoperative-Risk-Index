@@ -238,13 +238,12 @@ function calculateArrozullah() {
   score += surgery;
 
   if (emergency) score += 11;
-  if (albumin) score += 8;
+  if (albumin) score += 9;
   if (bun) score += 8;
   if (dependent) score += 7;
   if (copd) score += 6;
 
-  if (age >= 80) score += 13;
-  else if (age >= 70) score += 9;
+  if (age >= 70) score += 6;
   else if (age >= 60) score += 4;
 
   let riskClass = "";
@@ -253,13 +252,13 @@ function calculateArrozullah() {
   if (score <= 10) {
     riskClass = "Class 1"; riskPercent = "0.5%";
   } else if (score <= 19) {
-    riskClass = "Class 2"; riskPercent = "1.8%";
+    riskClass = "Class 2"; riskPercent = "~2%";
   } else if (score <= 27) {
-    riskClass = "Class 3"; riskPercent = "4.2%";
+    riskClass = "Class 3"; riskPercent = "5%";
   } else if (score <= 40) {
-    riskClass = "Class 4"; riskPercent = "10%";
+    riskClass = "Class 4"; riskPercent = "~11%";
   } else {
-    riskClass = "Class 5"; riskPercent = "26%";
+    riskClass = "Class 5"; riskPercent = "~30%";
   }
 
   document.getElementById("arrozResult").innerHTML =
@@ -748,6 +747,7 @@ document.getElementById("egfr-result").innerHTML =
 `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
 Stage: <b>${stage}</b>`;
 }
+
 
 
 
