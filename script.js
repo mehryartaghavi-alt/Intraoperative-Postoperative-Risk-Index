@@ -406,12 +406,14 @@ function calculateSpark() {
 
   const age = Number(document.getElementById("sparkAge").value);
   const egfr = Number(document.getElementById("sparkEgfr").value);
+  const male = document.getElementById("sparkMale").checked;
   const albuminuria = document.getElementById("sparkAlbuminuria").checked;
   const anemia = document.getElementById("sparkAnemia").checked;
   const diabetes = document.getElementById("sparkDiabetes").checked;
   const raas = document.getElementById("sparkRaas").checked;
   const emergency = document.getElementById("sparkEmergency").checked;
   const hypoalbumin = document.getElementById("sparkHypoalbumin").checked;
+  const natrium = document.getElementById("sparkNatrium").checked;
   const duration = Number(document.getElementById("sparkDuration").value);
 
   // Age
