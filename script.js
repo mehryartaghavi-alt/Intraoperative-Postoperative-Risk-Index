@@ -426,6 +426,11 @@ function calculateSpark() {
   else if (egfr < 45) score += 15;
   else if (egfr < 60) score += 8;
 
+   // duration
+    if (duration < 2) score += 0;
+  else if (duration < 4) score += 5;
+  else if (duration < 10) score += 10;
+
   if (male) score += 8; 
   if (albuminuria) score += 6;
   if (anemia) score += 4;
@@ -434,8 +439,6 @@ function calculateSpark() {
   if (emergency) score += 7;
   if (hypoalbumin) score += 8;
   if (natrium) score += 3;
-
-  score += duration;
 
   let riskLevel = "";
   let riskPercent = "";
