@@ -406,6 +406,7 @@ function calculateSpark() {
 
   const age = Number(document.getElementById("sparkAge").value);
   const egfr = Number(document.getElementById("sparkEgfr").value);
+  const duration = Number(document.getElementById("sparkDuration").value);
   const male = document.getElementById("sparkMale").checked;
   const albuminuria = document.getElementById("sparkAlbuminuria").checked;
   const anemia = document.getElementById("sparkAnemia").checked;
@@ -414,7 +415,7 @@ function calculateSpark() {
   const emergency = document.getElementById("sparkEmergency").checked;
   const hypoalbumin = document.getElementById("sparkHypoalbumin").checked;
   const natrium = document.getElementById("sparkNatrium").checked;
-  const duration = Number(document.getElementById("sparkDuration").value);
+  
 
   // Age
   if (age >= 80) score += 13;
@@ -427,10 +428,9 @@ function calculateSpark() {
   else if (egfr < 60) score += 8;
 
    // duration
-    if (duration < 2) score += 0;
-  else if (duration < 4) score += 5;
-  else if (duration < 10) score += 10;
-
+    if (duration >= 4) score += 10;
+  else if (duration >= 2) score += 5;
+  
   if (male) score += 8; 
   if (albuminuria) score += 6;
   if (anemia) score += 4;
