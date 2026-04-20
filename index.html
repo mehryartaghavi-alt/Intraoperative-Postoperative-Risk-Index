@@ -399,18 +399,23 @@
   <label>Surgery Type:</label>
   <select id="sprsSurgery">
     <option value="0">Low Risk Surgery</option>
-    <option value="10">Upper Abdominal Surgery (10)</option>
-    <option value="15">Thoracic Surgery (15)</option>
-    <option value="8">Vascular Surgery (8)</option>
-  </select>
+    <option value="2">Upper Abdominal Surgery (2)</option>
+    <option value="2">Thoracic Surgery (2)</option>
+      </select>
+<hr>
 
+  <label>Duration of Surgery:</label>
+  <select id="sprsDuration">
+    <option value="0">Lower than 2h (0)</option>
+    <option value="1">2 t0 3h (1)</option>
+    <option value="2">Upper than 3h (2)</option>
+      </select>
   <hr>
 
-  <label><input type="checkbox" id="sprsCopd"> COPD (6)</label><br>
-  <label><input type="checkbox" id="sprsEmergency"> Emergency Surgery (8)</label><br>
-  <label><input type="checkbox" id="sprsAlbumin"> Albumin &lt; 3 (8)</label><br>
-  <label><input type="checkbox" id="sprsDependent"> Dependent Functional Status (7)</label>
-
+  <label><input type="checkbox" id="sprsCopd"> COPD (1)</label><br>
+  <label><input type="checkbox" id="sprsEmergency"> Emergency Surgery (1)</label><br>
+  <label><input type="checkbox" id="sprsSmoking"> Smoking (1)</label><br>
+  
   <hr>
 
   <button onclick="calculateSprs()">Calculate</button>
