@@ -272,7 +272,6 @@ function calculateGuptar() {
   let score = 0;
 
   const surgery = Number(document.getElementById("guptarSurgery").value);
-  const duration = Number(document.getElementById("guptarDuration").value);
   const smoking = document.getElementById("guptarSmoking").checked;
   const hct = document.getElementById("guptarHct").checked;
   const bun = document.getElementById("guptarBun").checked;
