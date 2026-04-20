@@ -318,38 +318,36 @@ function calculateSprs() {
 
   const age = Number(document.getElementById("sprsAge").value);
   const surgery = Number(document.getElementById("sprsSurgery").value);
+  const duration = Number(document.getElementById("sprsDuration").value);
   const copd = document.getElementById("sprsCopd").checked;
   const emergency = document.getElementById("sprsEmergency").checked;
-  const albumin = document.getElementById("sprsAlbumin").checked;
-  const dependent = document.getElementById("sprsDependent").checked;
-
+  const smoking = document.getElementById("sprsSmoking").checked;
+  
   score += surgery;
+  score += duration;
 
-  if (copd) score += 6;
-  if (emergency) score += 8;
-  if (albumin) score += 8;
-  if (dependent) score += 7;
+  if (copd) score += 1;
+  if (emergency) score += 1;
+  if (smoking) score += 1;
+ 
 
-  if (age >= 80) score += 12;
-  else if (age >= 70) score += 8;
-  else if (age >= 60) score += 4;
+  if (age >= 80) score += 3;
+  else if (age >= 70) score += 2;
+  else if (age >= 60) score += 1;
 
   let riskLevel = "";
   let riskPercent = "";
 
-  if (score <= 10) {
+  if (score <= 1) {
     riskLevel = "Low Risk";
     riskPercent = "<1%";
-  } else if (score <= 20) {
+  } else if (score <= 3) {
     riskLevel = "Moderate Risk";
     riskPercent = "3–5%";
-  } else if (score <= 35) {
+  } else  {
     riskLevel = "High Risk";
     riskPercent = "10–15%";
-  } else {
-    riskLevel = "Very High Risk";
-    riskPercent = ">20%";
-  }
+  } 
 
   document.getElementById("sprsResult").innerHTML =
     `Score: ${score}<br>${riskLevel} – Estimated Risk: ${riskPercent}`;
