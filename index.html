@@ -493,6 +493,11 @@
   <label>eGFR (ml/min/1.73m²):</label>
   <input type="number" id="sparkEgfr" placeholder="Enter eGFR">
 
+    <hr>
+
+  <label> Duration of Surgery (Hours):</label>
+    <input type="number" id="sparkDuration" placeholder="Enter duration">
+ 
   <hr>
 <label><input type="checkbox" id="sparkmale"> Male</label><br>
   <label><input type="checkbox" id="sparkAlbuminuria"> Albuminuria</label><br>
@@ -502,15 +507,7 @@
   <label><input type="checkbox" id="sparkEmergency"> Emergency Surgery</label><br>
   <label><input type="checkbox" id="sparkHypoalbumin"> Albumin &lt; 3.5 g/dL</label>
 <label><input type="checkbox" id="sparkNatrium"> Natrium(Na) &lt; 135 mEq/L</label><br>
-  <hr>
-
-  <label>Surgery Duration:</label>
-  <select id="sparkDuration">
-    <option value="0">&lt; 2 hours</option>
-    <option value="5">2–4 hours</option>
-    <option value="10">&gt; 4 hours</option>
-  </select>
-
+  
   <hr>
 
   <button onclick="calculateSpark()">Calculate</button>
