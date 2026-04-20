@@ -415,39 +415,41 @@ function calculateSpark() {
   const duration = Number(document.getElementById("sparkDuration").value);
 
   // Age
-  if (age >= 80) score += 10;
-  else if (age >= 70) score += 7;
-  else if (age >= 60) score += 4;
+  if (age >= 80) score += 13;
+  else if (age >= 60) score += 9;
+  else if (age >= 40) score += 6;
 
   // eGFR
-  if (egfr < 30) score += 15;
-  else if (egfr < 45) score += 10;
-  else if (egfr < 60) score += 5;
+  if (egfr < 30) score += 22;
+  else if (egfr < 45) score += 15;
+  else if (egfr < 60) score += 8;
 
-  if (albuminuria) score += 8;
-  if (anemia) score += 6;
+  if (male) score += 8; 
+  if (albuminuria) score += 6;
+  if (anemia) score += 4;
   if (diabetes) score += 4;
-  if (raas) score += 4;
-  if (emergency) score += 8;
+  if (raas) score += 6;
+  if (emergency) score += 7;
   if (hypoalbumin) score += 8;
+  if (natrium) score += 3;
 
   score += duration;
 
   let riskLevel = "";
   let riskPercent = "";
 
-  if (score <= 10) {
-    riskLevel = "Low Risk";
-    riskPercent = "<1% AKI";
-  } else if (score <= 20) {
-    riskLevel = "Moderate Risk";
-    riskPercent = "3–5% AKI";
-  } else if (score <= 35) {
-    riskLevel = "High Risk";
+  if (score <= 20) {
+    riskLevel = "Class A, Low Risk";
+    riskPercent = "<2% AKI";
+  } else if (score <= 40) {
+    riskLevel = "Class B, Moderate Risk";
+    riskPercent = "2–10% AKI";
+  } else if (score <= 60) {
+    riskLevel = "Class C, High Risk";
     riskPercent = "10–20% AKI";
   } else {
-    riskLevel = "Very High Risk";
-    riskPercent = ">30% AKI";
+    riskLevel = "Class D, Very High Risk";
+    riskPercent = ">20% AKI";
   }
 
   document.getElementById("sparkResult").innerHTML =
