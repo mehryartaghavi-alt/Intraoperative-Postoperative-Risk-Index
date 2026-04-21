@@ -477,7 +477,6 @@ function calculateKheterpal() {
 
    // Age
   if (age >= 56) score += 1;
-  else if (age < 56) score += 0;
     
   if (intraperitoneal) score += 1;
   if (male) score += 1;
@@ -494,13 +493,13 @@ function calculateKheterpal() {
   if (score <= 2) {
     riskClass = "Class I";
     riskPercent = "0.2% Dialysis Risk";
-  } else if (score <= 3) {
+  } else if (score = 3) {
     riskClass = "Class II";
     riskPercent = "0.8% Dialysis Risk";
-  } else if (score <= 4) {
+  } else if (score = 4) {
     riskClass = "Class III";
     riskPercent = "2% Dialysis Risk";
-  } else if (score <= 5) {
+  } else if (score = 5) {
     riskClass = "Class IV";
     riskPercent = "3.6% Dialysis Risk";
   } else {
