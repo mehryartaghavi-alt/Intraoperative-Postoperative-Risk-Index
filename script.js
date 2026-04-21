@@ -485,7 +485,7 @@ function calculateKheterpal() {
   if (chf) score += 1;
   if (ascites) score += 1;
   if (emergency) score += 1;
-  if (hypettension) score += 1;
+  if (hypertension) score += 1;
 
   let riskClass = "";
   let riskPercent = "";
