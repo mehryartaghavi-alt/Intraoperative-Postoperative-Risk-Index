@@ -475,7 +475,7 @@ function calculateKheterpal() {
   const ascites = document.getElementById("kAscites").checked;
   const emergency = document.getElementById("kEmergency").checked;
 
-  if (age >= 56) score += 1;
+  if (age) score += 1;
   if (intraperitoneal) score += 1;
   if (male) score += 1;
   if (renal) score += 1;
