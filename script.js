@@ -465,7 +465,7 @@ function calculateKheterpal() {
 
   let score = 0;
 
-  const age = document.getElementById("kAge").checked;
+  const age >=56 = document.getElementById("kAge").checked;
   const male = document.getElementById("kMale").checked;
   const intraperitoneal = document.getElementById("kIntraperitoneal").checked;
   const hypertension = document.getElementById("kHypertension").checked;
@@ -475,7 +475,7 @@ function calculateKheterpal() {
   const ascites = document.getElementById("kAscites").checked;
   const emergency = document.getElementById("kEmergency").checked;
 
-  if (age) score += 1;
+  if (age >=56) score += 1;
   if (intraperitoneal) score += 1;
   if (male) score += 1;
   if (renal) score += 1;
