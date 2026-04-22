@@ -621,6 +621,30 @@ Calculate Cockcroft–Gault GFR
 <button class="backBtn" data-target="page-renal">⬅ Back</button>
 
 </div>
+ <div id="page-egfr" class="page">
+   <h2>MDRD eGFR</h2>
+
+<label>Age (years)</label>
+<input type="number" id="age" placeholder="Age">
+
+<label>Sex</label>
+<select id="sex">
+    <option value="">Select</option>
+    <option value="female">Female</option>
+    <option value="male">Male</option>
+</select>
+
+<label>Serum Creatinine (mg/dL)</label>
+<input type="number" step="0.1" id="scr" placeholder="Creatinine">
+
+   <button onclick="calculateMDRD()">Calculate eGFR</button>
+
+<div id="egfr-result" class="result-box"></div>
+
+<button class="backBtn" data-target="page-renal">⬅ Back</button>
+
+</div>
+
    <!-- CEREBRAL -->
   <div id="page-cerebral" class="page">
     <h2>Stroke Risk Assessment</h2>
