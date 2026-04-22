@@ -747,11 +747,14 @@ function calculateCockcroftGaultGFR() {
 }
 document.addEventListener("DOMContentLoaded", function () {
 
-    const egfrBtn = document.getElementById("calcMDRD eGFR");
+    const egfrBtn = document.getElementById("calcMDRD");
 
     if (egfrBtn){
-        cggfrBtn.addEventListener("click", calculateMDRDeGFR);
+        egfrBtn.addEventListener("click", calculateMDRD);
     }
+
+});
+
 function calculateMDRD() {
 
     let age = parseFloat(document.getElementById("age").value);
@@ -759,7 +762,7 @@ function calculateMDRD() {
     let scr = parseFloat(document.getElementById("scr").value);
 
     if (isNaN(age) || isNaN(scr) || !sex) {
-        document.getElementById("result").innerHTML = "Please enter all values";
+        document.getElementById("egfr-result").innerHTML = "Please enter all values";
         return;
     }
 
@@ -778,7 +781,7 @@ function calculateMDRD() {
     else if (egfr >= 15) stage = "G4 Severe";
     else stage = "G5 Failure";
 
-    document.getElementById("result").innerHTML =
+    document.getElementById("egfr-result").innerHTML =
         `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
          Stage: <b>${stage}</b>`;
 }
