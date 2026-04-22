@@ -782,7 +782,6 @@ function calculateMDRD() {
         `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
          Stage: <b>${stage}</b>`;
 }
-<script>
 
 
 
