@@ -745,7 +745,13 @@ function calculateCockcroftGaultGFR() {
         `Cockcroft–Gault GFR: <b>${cggfr.toFixed(1)}</b> ml/min/1.73m²<br>
         Stage: <b>${stage}</b>`;
 }
+document.addEventListener("DOMContentLoaded", function () {
 
+    const egfrBtn = document.getElementById("calcMDRD eGFR");
+
+    if (egfrBtn){
+        cggfrBtn.addEventListener("click", calculateMDRDeGFR);
+    }
 function calculateMDRD() {
 
     let age = parseFloat(document.getElementById("age").value);
