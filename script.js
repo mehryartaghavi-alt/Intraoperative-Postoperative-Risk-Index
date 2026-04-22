@@ -742,7 +742,7 @@ function calculateCockcroftGaultGFR() {
     else stage = "G5 Failure";
 
     document.getElementById("cggfr-result").innerHTML =
-        `Cockcroft–Gault GFR: <b>${cggfr.toFixed(1)}</b> ml/min<br>
+        `Cockcroft–Gault GFR: <b>${cggfr.toFixed(1)}</b> ml/min/1.73m²<br>
         Stage: <b>${stage}</b>`;
 }
 
