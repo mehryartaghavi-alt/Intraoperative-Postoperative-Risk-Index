@@ -517,7 +517,7 @@ function calculateCleveland() {
 
   const sex = Number(document.getElementById("clevSex").value);
   const creatinine = Number(document.getElementById("clevCr").value);
-
+const surgery = Number(document.getElementById("clevSurgery").value);
   const chf = document.getElementById("clevCHF").checked;
   const lowEF = document.getElementById("clevLowEF").checked;
   const copd = document.getElementById("clevCOPD").checked;
@@ -526,16 +526,17 @@ function calculateCleveland() {
   const emergency = document.getElementById("clevEmergency").checked;
   const iabp = document.getElementById("clevIABP").checked;
 
+  score += surgery;
   if (sex === 1) score += 1;
-  if (creatinine > 2) score += 5;
+  if (creatinine > 2.1) score += 5;
 
-  if (chf) score += 2;
-  if (lowEF) score += 2;
+  if (chf) score += 1;
+  if (lowEF) score += 1;
   if (copd) score += 1;
   if (dm) score += 1;
   if (redo) score += 1;
   if (emergency) score += 2;
-  if (iabp) score += 3;
+  if (iabp) score += 2;
 
   let riskClass = "";
   let riskPercent = "";
@@ -545,10 +546,10 @@ function calculateCleveland() {
     riskPercent = "0.4% Dialysis Risk";
   } else if (score <= 5) {
     riskClass = "Class II";
-    riskPercent = "1–3%";
+    riskPercent = "1.8%";
   } else if (score <= 8) {
     riskClass = "Class III";
-    riskPercent = "5–15%";
+    riskPercent = "7.8-9.5%";
   } else {
     riskClass = "Class IV";
     riskPercent = ">20%";
