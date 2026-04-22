@@ -434,7 +434,8 @@
       <button class="score-btn" data-score="spark">Postoperative AKI Risk (SPARK)</button>
     <button class="score-btn" data-score="kheterpal">Kheterpal AKI Risk Index</button>
     <button class="score-btn" data-score="cleveland">Cleveland Clinic AKI Risk Score</button>
-    <button class="score-btn"data-score="egfr">eGFR Calculator</button>
+    <button class="score-btn"data-score="cggfr">Cockcroft–Gault GFR </button>
+    <button class="score-btn"data-score="egfr">MDRD eGFR </button>
     <button class="backBtn">⬅ Back</button>
  <div class="disclaimer">
 <strong>For predicting renal complications & ALI during and after surgery.</strong><br>
@@ -589,30 +590,33 @@
   <button class="backBtn" data-target="page-renal">⬅Back</button>
 
 </div>
-  <div id="page-egfr" class="page">
+  <div id="page-cggfr" class="page">
 
-<h2>eGFR Calculator (CKD-EPI)</h2>
+<h2>Cockcroft–Gault GFR </h2>
 
 <label>Age (years)</label>
-<input type="number" id="egfr-age" placeholder="Age">
-
+<input type="number" id="cggfr-age" placeholder="Age">
+    
+<label>Weight (Kg)</label>
+<input type="number" id="cggfr-weight" placeholder="Weight">
+    
 <label>Sex</label>
-<select id="egfr-sex">
+<select id="cggfr-sex">
   <option value="female">Female</option>
   <option value="male">Male</option>
 </select>
 
 <label>Serum Creatinine (mg/dL)</label>
-<input type="number" step="0.1" id="egfr-creatinine"
+<input type="number" step="0.1" id="cggfr-creatinine"
 placeholder="Creatinine">
 
 <br><br>
 
 <button onclick="calculateEGFR()">
-Calculate eGFR
+Calculate Cockcroft–Gault GFR
 </button>
 
-<div id="egfr-result" class="result-box"></div>
+<div id="cggfr-result" class="result-box"></div>
 
 <button class="backBtn" data-target="page-renal">⬅ Back</button>
 
