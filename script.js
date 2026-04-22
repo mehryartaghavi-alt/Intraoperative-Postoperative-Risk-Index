@@ -706,60 +706,60 @@ function calculateHepPostopRisk() {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const egfrBtn =
-document.getElementById("calcEGFR");
+const cggfrBtn =
+document.getElementById("calcCockcroft–Gault GFR");
 
-if (egfrBtn){
-egfrBtn.addEventListener("click", calculateEGFR);
+if (cggfrBtn){
+cggfrBtn.addEventListener("click", calculateCockcroft–Gault GFR);
 }
 
 });
 
-function calculateEGFR() {
+function calculateCockcroft–Gault GFR() {
 
 let age =
-parseFloat(document.getElementById("egfr-age").value);
-
+parseFloat(document.getElementById("cggfr-age").value);
+let weight =
+parseFloat(document.getElementById("cggfr-weight").value);
 let sex =
-document.getElementById("egfr-sex").value;
+document.getElementById("cggfr-sex").value;
 
 let scr =
-parseFloat(document.getElementById("egfr-creatinine").value);
+parseFloat(document.getElementById("cggfr-creatinine").value);
 
 if (!age || !scr) {
-document.getElementById("egfr-result")
+document.getElementById("cggfr-result")
 .innerHTML = "Please enter all values";
 return;
 }
 
-let k = sex === "female" ? 0.7 : 0.9;
-let alpha = sex === "female" ? -0.241 : -0.302;
-let sexFactor = sex === "female" ? 1.012 : 1;
+let cggfr = ((140-age)*weight)/(72*scr);
 
-let egfr =
-142 *
-Math.pow(Math.min(scr/k,1), alpha) *
-Math.pow(Math.max(scr/k,1), -1.200) *
-Math.pow(0.9938, age) *
-sexFactor;
-
+if (sex === "female") { cggfr *= 0.085; }
+  
 let stage="";
 
-if (egfr>=90) stage="G1 Normal";
-else if (egfr>=60) stage="G2 Mild";
-else if (egfr>=45) stage="G3a";
-else if (egfr>=30) stage="G3b";
-else if (egfr>=15) stage="G4 Severe";
+if (cggfr>=90) stage="G1 Normal";
+else if (cggfr>=60) stage="G2 Mild";
+else if (cggfr>=45) stage="G3a";
+else if (cggfr>=30) stage="G3b";
+else if (cggfr>=15) stage="G4 Severe";
 else stage="G5 Failure";
 
-document.getElementById("egfr-result").innerHTML =
-`eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
+document.getElementById("cggfr-result").innerHTML =
+`Cockcroft–Gault GFR: <b>${cggfr.toFixed(1)}</b> ml/min/1.73m²<br>
 Stage: <b>${stage}</b>`;
 }
 
 
-
-
+140 *
+Math.pow(Math.min(scr/k,1), alpha) *
+Math.pow(Math.max(scr/k,1), -1.200) *
+Math.pow(0.9938, age) *
+sexFactor;
+let k = sex === "female" ? 0.7 : 0.9;
+let alpha = sex === "female" ? -0.241 : -0.302;
+let sexFactor = sex === "female" ? 1.012 : 1;
 
 
 
