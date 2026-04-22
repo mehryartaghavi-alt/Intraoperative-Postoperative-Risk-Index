@@ -746,7 +746,37 @@ function calculateCockcroftGaultGFR() {
         Stage: <b>${stage}</b>`;
 }
 
+function calculateMDRD() {
 
+    let age = parseFloat(document.getElementById("age").value);
+    let sex = document.getElementById("sex").value;
+    let scr = parseFloat(document.getElementById("scr").value);
+
+    if (isNaN(age) || isNaN(scr) || !sex) {
+        document.getElementById("result").innerHTML = "Please enter all values";
+        return;
+    }
+
+    let egfr = 175 * Math.pow(scr, -1.154) * Math.pow(age, -0.203);
+
+    if (sex === "female") {
+        egfr *= 0.742;
+    }
+
+    let stage = "";
+
+    if (egfr >= 90) stage = "G1 Normal";
+    else if (egfr >= 60) stage = "G2 Mild";
+    else if (egfr >= 45) stage = "G3a";
+    else if (egfr >= 30) stage = "G3b";
+    else if (egfr >= 15) stage = "G4 Severe";
+    else stage = "G5 Failure";
+
+    document.getElementById("result").innerHTML =
+        `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
+         Stage: <b>${stage}</b>`;
+}
+<script>
 
 
 
