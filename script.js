@@ -704,62 +704,47 @@ function calculateHepPostopRisk() {
      <strong>Risk Level:</strong> ${riskText} – ${riskPercent}`;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-const cggfrBtn =
-document.getElementById("calcCockcroft–Gault GFR");
+    const cggfrBtn = document.getElementById("calcCockcroftGaultGFR");
 
-if (cggfrBtn){
-cggfrBtn.addEventListener("click", calculateCockcroft–Gault GFR);
-}
+    if (cggfrBtn){
+        cggfrBtn.addEventListener("click", calculateCockcroftGaultGFR);
+    }
 
 });
 
-function calculateCockcroft–Gault GFR() {
+function calculateCockcroftGaultGFR() {
 
-let age =
-parseFloat(document.getElementById("cggfr-age").value);
-let weight =
-parseFloat(document.getElementById("cggfr-weight").value);
-let sex =
-document.getElementById("cggfr-sex").value;
+    let age = parseFloat(document.getElementById("cggfr-age").value);
+    let weight = parseFloat(document.getElementById("cggfr-weight").value);
+    let sex = document.getElementById("cggfr-sex").value;
+    let scr = parseFloat(document.getElementById("cggfr-creatinine").value);
 
-let scr =
-parseFloat(document.getElementById("cggfr-creatinine").value);
+    if (!age || !weight || !scr) {
+        document.getElementById("cggfr-result").innerHTML = "Please enter all values";
+        return;
+    }
 
-if (!age || !scr) {
-document.getElementById("cggfr-result")
-.innerHTML = "Please enter all values";
-return;
+    let cggfr = ((140 - age) * weight) / (72 * scr);
+
+    if (sex === "female") {
+        cggfr *= 0.85;
+    }
+
+    let stage = "";
+
+    if (cggfr >= 90) stage = "G1 Normal";
+    else if (cggfr >= 60) stage = "G2 Mild";
+    else if (cggfr >= 45) stage = "G3a";
+    else if (cggfr >= 30) stage = "G3b";
+    else if (cggfr >= 15) stage = "G4 Severe";
+    else stage = "G5 Failure";
+
+    document.getElementById("cggfr-result").innerHTML =
+        `Cockcroft–Gault GFR: <b>${cggfr.toFixed(1)}</b> ml/min<br>
+        Stage: <b>${stage}</b>`;
 }
-
-let cggfr = ((140-age)*weight)/(72*scr);
-
-if (sex === "female") { cggfr *= 0.085; }
-  
-let stage="";
-
-if (cggfr>=90) stage="G1 Normal";
-else if (cggfr>=60) stage="G2 Mild";
-else if (cggfr>=45) stage="G3a";
-else if (cggfr>=30) stage="G3b";
-else if (cggfr>=15) stage="G4 Severe";
-else stage="G5 Failure";
-
-document.getElementById("cggfr-result").innerHTML =
-`Cockcroft–Gault GFR: <b>${cggfr.toFixed(1)}</b> ml/min/1.73m²<br>
-Stage: <b>${stage}</b>`;
-}
-
-
-140 *
-Math.pow(Math.min(scr/k,1), alpha) *
-Math.pow(Math.max(scr/k,1), -1.200) *
-Math.pow(0.9938, age) *
-sexFactor;
-let k = sex === "female" ? 0.7 : 0.9;
-let alpha = sex === "female" ? -0.241 : -0.302;
-let sexFactor = sex === "female" ? 1.012 : 1;
 
 
 
