@@ -735,11 +735,11 @@ function calculateCockcroftGaultGFR() {
     let stage = "";
 
     if (cggfr >= 90) stage = "G1 Normal";
-    else if (cggfr >= 60) stage = "G2 Mild";
-    else if (cggfr >= 45) stage = "G3a";
-    else if (cggfr >= 30) stage = "G3b";
-    else if (cggfr >= 15) stage = "G4 Severe";
-    else stage = "G5 Failure";
+    else if (cggfr >= 60) stage = "G2 Renal Risk";
+    else if (cggfr >= 45) stage = "G3a Renal Insufficiency";
+    else if (cggfr >= 30) stage = "G3b Renal Failure";
+    else if (cggfr >= 15) stage = "G4 Renal Loss";
+    else stage = "G5 End-Stage Renal Disease";
 
     document.getElementById("cggfr-result").innerHTML =
         `Cockcroft–Gault GFR: <b>${cggfr.toFixed(1)}</b> ml/min/1.73m²<br>
@@ -766,7 +766,7 @@ function calculateMDRD() {
         return;
     }
 
-    let egfr = 175 * Math.pow(scr, -1.154) * Math.pow(age, -0.203);
+    let egfr = ((186 * scr) - (0.154 * age) - 0.203));
 
     if (sex === "female") {
         egfr *= 0.742;
@@ -775,11 +775,11 @@ function calculateMDRD() {
     let stage = "";
 
     if (egfr >= 90) stage = "G1 Normal";
-    else if (egfr >= 60) stage = "G2 Mild";
-    else if (egfr >= 45) stage = "G3a";
-    else if (egfr >= 30) stage = "G3b";
-    else if (egfr >= 15) stage = "G4 Severe";
-    else stage = "G5 Failure";
+    else if (egfr >= 60) stage = "G2 Renal Risk";
+    else if (egfr >= 45) stage = "G3a Renal Injury";
+    else if (egfr >= 30) stage = "G3b Renal Failure";
+    else if (egfr >= 15) stage = "G4 Renal Loss";
+    else stage = "G5 End-Stage Renal Disease";
 
     document.getElementById("egfr-result").innerHTML =
         `eGFR: <b>${egfr.toFixed(1)}</b> ml/min/1.73m²<br>
