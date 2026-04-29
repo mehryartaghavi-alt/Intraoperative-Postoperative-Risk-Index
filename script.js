@@ -618,9 +618,9 @@ function calculateChildPugh() {
   let totalScore = bilirubin + albumin + inr + ascites + enceph;
 
   let riskClass = "";
-  if(totalScore <= 6) riskClass = "Class A – Low risk";
-  else if(totalScore <= 9) riskClass = "Class B – Moderate risk";
-  else riskClass = "Class C – High risk";
+  if(totalScore <= 6) riskClass = "Class A – Low risk - One-year survival=100%";
+  else if(totalScore <= 9) riskClass = "Class B – Moderate risk - One-year survival=80%";
+  else riskClass = "Class C – High risk - One-year survival=40%";
 
   document.getElementById("cpResult").innerHTML =
     `<strong>Total Score:</strong> ${totalScore}<br><strong>${riskClass}</strong>`;
