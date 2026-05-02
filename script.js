@@ -649,10 +649,11 @@ function calculateMELD() {
 
   // تفسیر ساده
   let riskText = "";
-  if(meld < 10) riskText = "Low risk";
-  else if(meld <= 19) riskText = "Moderate risk";
-  else if(meld <= 29) riskText = "High risk";
-  else riskText = "Very high risk";
+  if(meld < 10) riskText = "minimal risk, 90-days mortality= 1.9% ";
+  else if(meld <= 19) riskText = "Mild risk, 90-days mortality= 6% ";
+     else if(meld <= 29) riskText = "Moderate risk, 90-days mortality= 19.6% ";
+  else if(meld <= 39) riskText = "High risk, 90-days mortality= 52.6% ";
+  else riskText = "Very high risk, 90-days mortality= 71.3% ";
 
   document.getElementById("meldResult").innerHTML =
     `<strong>MELD Score:</strong> ${meld}<br><strong>Risk Level:</strong> ${riskText}`;
